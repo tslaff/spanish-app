@@ -1,0 +1,20 @@
+<div class="counter muted">{{ remaining }} due</div>
+<div class="card">
+  <div class="front">{{ card.prompt }}</div>
+  <div class="result {{ 'ok' if correct else 'bad' }}">
+    {% if correct %}✓ Correct!{% else %}✗ Not quite{% endif %}
+  </div>
+  {% if not correct and attempt.strip() %}
+  <div class="your-answer muted">You wrote: {{ attempt }}</div>
+  {% endif %}
+  <div class="back">
+    <div class="answer">{{ card.answer }}</div>
+    {% if card.notes %}<div class="notes">{{ card.notes }}</div>{% endif %}
+  </div>
+</div>
+
+<div class="controls">
+  <button class="primary"
+          hx-get="/review/{{ deck.id }}/next"
+          hx-target="#review-area" hx-swap="innerHTML">Next</button>
+</div>

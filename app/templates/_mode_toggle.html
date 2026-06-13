@@ -1,0 +1,6 @@
+<div class="mode-toggle" role="group" aria-label="Translation direction">
+  {% for value, label in labels.items() %}
+  <a href="/direction/{{ value }}?next={{ next | urlencode }}"
+     class="{{ 'active' if direction == value else '' }}">{{ label }}</a>
+  {% endfor %}
+</div>

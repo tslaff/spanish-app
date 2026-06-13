@@ -1,41 +1,20 @@
 {% if item %}
 <div class="counter muted">{{ remaining }} due</div>
 <div class="card">
-  <div class="front">{{ item.es }}</div>
-
-  {% if claude_enabled %}
-  <textarea id="attempt" rows="2" placeholder="Type your English translation..."></textarea>
-  <button class="ghost"
-          hx-post="/sentences/{{ deck.id }}/check"
-          hx-vals='js:{item_id: "{{ item.id }}", attempt: document.getElementById("attempt").value}'
-          hx-target="#feedback" hx-swap="innerHTML"
-          hx-indicator="#checking">Check my translation</button>
-  <span id="checking" class="htmx-indicator muted"> checking…</span>
-  <div id="feedback"></div>
-  {% endif %}
-
-  <div class="back" hidden>
-    <div class="answer">{{ item.en }}</div>
-    {% if item.notes %}<div class="notes">{{ item.notes }}</div>{% endif %}
-  </div>
+  <div class="front">{{ item.prompt }}</div>
+  <textarea id="attempt" rows="2" autofocus
+            placeholder="Type your translation…"></textarea>
 </div>
 
 <div class="controls">
-  <button class="primary reveal"
-          onclick="this.closest('.controls').previousElementSibling.querySelector('.back').hidden=false;
-                   this.hidden=true; this.nextElementSibling.hidden=false;">
-    Show answer
-  </button>
-  <div class="grade" hidden>
-    <button class="danger"
-            hx-post="/sentences/{{ deck.id }}/grade"
-            hx-vals='{"item_id": "{{ item.id }}", "correct": "0"}'
-            hx-target="#sentence-area" hx-swap="innerHTML">Hard</button>
-    <button class="success"
-            hx-post="/sentences/{{ deck.id }}/grade"
-            hx-vals='{"item_id": "{{ item.id }}", "correct": "1"}'
-            hx-target="#sentence-area" hx-swap="innerHTML">Easy</button>
-  </div>
+  <button class="primary"
+          hx-post="/sentences/{{ deck.id }}/check"
+          hx-vals='js:{item_id: "{{ item.id }}", attempt: document.getElementById("attempt").value}'
+          hx-target="#sentence-area" hx-swap="innerHTML">Check</button>
+  <button class="ghost"
+          hx-post="/sentences/{{ deck.id }}/check"
+          hx-vals='{"item_id": "{{ item.id }}", "attempt": "", "reveal": "1"}'
+          hx-target="#sentence-area" hx-swap="innerHTML">Show answer</button>
 </div>
 {% else %}
 <div class="done">

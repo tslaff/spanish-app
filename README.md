@@ -13,6 +13,7 @@ work nicely from your phone.
 | `app/srs.py` | Leitner spaced-repetition logic |
 | `app/db.py` | SQLite progress storage |
 | `app/content.py` | Loads lessons from `content/*.yaml` |
+| `app/grading.py` | Accent-insensitive checking of typed translations |
 | `app/translate.py` | Optional Claude-powered translation feedback |
 | `content/*.yaml` | Your vocabulary and sentences |
 
@@ -68,6 +69,29 @@ Commit and push — Railway redeploys and the lesson appears. Progress is keyed
 to each card's `front` text, so editing the back/notes keeps your history;
 changing the front text starts that card fresh.
 
+## Checking your answers
+
+Both flashcards and sentences let you **type the translation and check it**.
+On a flashcard you see the Spanish word and type its English meaning; on the
+sentence screen you type your English translation. Hit **Check** (or press
+Enter) and the app tells you whether you're right, then reveals the expected
+answer and any notes.
+
+The check **ignores accents and diacritics**, case, and surrounding
+punctuation — so `buenos dias` matches `buenos días` and `Hello!` matches
+`hello`. You can also list several acceptable answers in the lesson YAML by
+separating them with `/`:
+
+```yaml
+cards:
+  - front: "hola"
+    back: "hi / hello"
+```
+
+The result feeds the spaced-repetition schedule automatically: a correct
+answer moves the card up a box, a miss drops it back to box 1. Don't feel like
+typing? Hit **Show answer** to reveal it (counted as a miss) and move on.
+
 ## How the spaced repetition works
 
 Each card sits in a Leitner box (1–5). Answer correctly and it moves up a box
@@ -78,7 +102,10 @@ review session simply walks the due cards. Tune the schedule in
 
 ## Optional: AI translation feedback
 
-If you set `ANTHROPIC_API_KEY`, the sentence screen gains a "Check my
-translation" box that asks Claude to evaluate your attempt and suggest more
-natural phrasing. Without the key, sentences work as reveal-and-self-grade
-cards. It uses a small, inexpensive model — fine for one learner.
+The built-in answer check (above) is an exact, accent-insensitive match. If you
+also set `ANTHROPIC_API_KEY`, the sentence result screen gains an **"Ask Claude
+for feedback"** button that sends your attempt to Claude for a gentler,
+free-form critique — handy for sentences where several phrasings are valid and
+it can point out grammar or word-choice nuances. It uses a small, inexpensive
+model — fine for one learner. Without the key, this button simply doesn't
+appear and everything else works as normal.

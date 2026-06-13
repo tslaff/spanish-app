@@ -1,29 +1,25 @@
 {% if card %}
 <div class="counter muted">{{ remaining }} due</div>
 <div class="card">
-  <div class="front">{{ card.front }}</div>
-  <div class="back" hidden>
-    <div class="answer">{{ card.back }}</div>
-    {% if card.notes %}<div class="notes">{{ card.notes }}</div>{% endif %}
-  </div>
+  <div class="front">{{ card.prompt }}</div>
+  <input id="attempt" class="attempt-input" type="text" autofocus
+         autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"
+         placeholder="Type the translation…"
+         hx-post="/review/{{ deck.id }}/check"
+         hx-trigger="keyup[key=='Enter']"
+         hx-vals='js:{card_id: "{{ card.id }}", attempt: document.getElementById("attempt").value}'
+         hx-target="#review-area" hx-swap="innerHTML">
 </div>
 
 <div class="controls">
-  <button class="primary reveal"
-          onclick="this.closest('.controls').previousElementSibling.querySelector('.back').hidden=false;
-                   this.hidden=true; this.nextElementSibling.hidden=false;">
-    Show answer
-  </button>
-  <div class="grade" hidden>
-    <button class="danger"
-            hx-post="/review/{{ deck.id }}/grade"
-            hx-vals='{"card_id": "{{ card.id }}", "correct": "0"}'
-            hx-target="#review-area" hx-swap="innerHTML">Missed it</button>
-    <button class="success"
-            hx-post="/review/{{ deck.id }}/grade"
-            hx-vals='{"card_id": "{{ card.id }}", "correct": "1"}'
-            hx-target="#review-area" hx-swap="innerHTML">Got it</button>
-  </div>
+  <button class="primary"
+          hx-post="/review/{{ deck.id }}/check"
+          hx-vals='js:{card_id: "{{ card.id }}", attempt: document.getElementById("attempt").value}'
+          hx-target="#review-area" hx-swap="innerHTML">Check</button>
+  <button class="ghost"
+          hx-post="/review/{{ deck.id }}/check"
+          hx-vals='{"card_id": "{{ card.id }}", "attempt": "", "reveal": "1"}'
+          hx-target="#review-area" hx-swap="innerHTML">Show answer</button>
 </div>
 {% else %}
 <div class="done">

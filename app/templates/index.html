@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 <h1>Your lessons</h1>
+{% include "_mode_toggle.html" %}
 {% if not decks %}
   <p class="muted">No lessons found. Add a YAML file to the <code>content/</code> folder.</p>
 {% endif %}

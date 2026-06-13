@@ -91,6 +91,33 @@ code {
 .topbar { margin-bottom: 16px; }
 .topbar .muted { display: inline-block; margin-bottom: 6px; }
 
+/* ── Direction toggle ───────────────────────────── */
+.mode-toggle {
+  display: inline-flex;
+  margin: 4px 0 22px;
+  padding: 4px;
+  gap: 4px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+.mode-toggle a {
+  padding: 8px 16px;
+  border-radius: 9px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  color: var(--ink-dim);
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.mode-toggle a.active {
+  background: linear-gradient(135deg, var(--purple) 0%, #5b21b6 100%);
+  color: #fff;
+  box-shadow: 0 2px 12px rgba(124, 58, 237, 0.45);
+}
+.mode-toggle a:not(.active):hover { color: var(--ink); }
+
 /* ── Dashboard ───────────────────────────────────── */
 .deck {
   background: var(--surface);
@@ -203,6 +230,37 @@ textarea:focus {
 }
 textarea::placeholder { color: var(--ink-dim); }
 
+.attempt-input {
+  width: 100%;
+  margin-top: 20px;
+  padding: 14px 16px;
+  font-size: 18px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  font-family: inherit;
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.attempt-input:focus {
+  border-color: var(--border-bright);
+  box-shadow: var(--glow-purple);
+}
+.attempt-input::placeholder { color: var(--ink-dim); }
+
+.result {
+  margin-top: 22px;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+}
+.result.ok { color: var(--green); text-shadow: 0 0 14px rgba(0, 229, 160, 0.5); }
+.result.bad { color: var(--red); text-shadow: 0 0 14px rgba(255, 77, 109, 0.45); }
+
+.your-answer { margin-top: 8px; font-size: 14px; }
+
 .feedback-box {
   margin-top: 14px;
   padding: 14px 16px;
@@ -254,7 +312,7 @@ button.ghost:hover {
   color: var(--ink);
 }
 
-.grade { display: flex; gap: 12px; }
+.grade { display: flex; gap: 12px; margin-top: 14px; }
 .grade button { flex: 1; }
 
 button.success {

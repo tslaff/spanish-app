@@ -1,0 +1,30 @@
+<div class="counter muted">{{ remaining }} due</div>
+<div class="card">
+  <div class="front">{{ item.prompt }}</div>
+  <div class="result {{ 'ok' if correct else 'bad' }}">
+    {% if correct %}✓ Correct!{% else %}✗ Not quite{% endif %}
+  </div>
+  {% if not correct and attempt.strip() %}
+  <div class="your-answer muted">You wrote: {{ attempt }}</div>
+  {% endif %}
+  <div class="back">
+    <div class="answer">{{ item.answer }}</div>
+    {% if item.notes %}<div class="notes">{{ item.notes }}</div>{% endif %}
+  </div>
+
+  {% if claude_enabled %}
+  <button class="ghost"
+          hx-post="/sentences/{{ deck.id }}/feedback"
+          hx-vals='{{ {"item_id": item.id, "attempt": attempt} | tojson }}'
+          hx-target="#feedback" hx-swap="innerHTML"
+          hx-indicator="#checking">Ask Claude for feedback</button>
+  <span id="checking" class="htmx-indicator muted"> checking…</span>
+  <div id="feedback"></div>
+  {% endif %}
+</div>
+
+<div class="controls">
+  <button class="primary"
+          hx-get="/sentences/{{ deck.id }}/next"
+          hx-target="#sentence-area" hx-swap="innerHTML">Next</button>
+</div>

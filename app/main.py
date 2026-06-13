@@ -7,7 +7,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from starlette.middleware.sessions import SessionMiddleware
 
-from . import auth, content, db, srs, translate
+from . import auth, content, db, grading, modes, srs, translate
 from .config import settings
 
 BASE_DIR = os.path.dirname(__file__)
@@ -31,8 +31,12 @@ def _redirect_if_anon(request: Request):
     return None
 
 
-def _due(items: list[dict], pm: dict) -> list[dict]:
-    return [it for it in items if srs.is_due(pm.get(it["id"]))]
+def _due(items: list[dict], pm: dict, direction: str) -> list[dict]:
+    return [
+        it
+        for it in items
+        if srs.is_due(pm.get(modes.progress_id(it["id"], direction)))
+    ]
 
 
 # ----- auth -----
@@ -58,6 +62,17 @@ def logout(request: Request):
     return RedirectResponse("/login", status_code=303)
 
 
+@app.get("/direction/{value}")
+def set_direction(request: Request, value: str, next: str = "/"):
+    """Switch translation direction, then return to the page you were on."""
+    if (r := _redirect_if_anon(request)) is not None:
+        return r
+    if value in modes.LABELS:
+        request.session["direction"] = value
+    target = next if next.startswith("/") else "/"  # only allow local redirects
+    return RedirectResponse(target, status_code=303)
+
+
 # ----- dashboard -----
 
 @app.get("/", response_class=HTMLResponse)
@@ -65,6 +80,7 @@ def index(request: Request):
     if (r := _redirect_if_anon(request)) is not None:
         return r
     pm = db.progress_map()
+    direction = modes.get_direction(request)
     decks = []
     for d in content.load_decks():
         decks.append(
@@ -72,12 +88,15 @@ def index(request: Request):
                 "id": d["id"],
                 "name": d["name"],
                 "vocab_total": len(d["cards"]),
-                "vocab_due": len(_due(d["cards"], pm)),
+                "vocab_due": len(_due(d["cards"], pm, direction)),
                 "sent_total": len(d["sentences"]),
-                "sent_due": len(_due(d["sentences"], pm)),
+                "sent_due": len(_due(d["sentences"], pm, direction)),
             }
         )
-    return templates.TemplateResponse("index.html", {"request": request, "decks": decks})
+    return templates.TemplateResponse(
+        "index.html",
+        {"request": request, "decks": decks, "direction": direction, "labels": modes.LABELS, "next": "/"},
+    )
 
 
 # ----- flashcard review -----
@@ -89,26 +108,75 @@ def review(request: Request, deck_id: str):
     deck = content.get_deck(deck_id)
     if not deck:
         return RedirectResponse("/", status_code=303)
-    due = _due(deck["cards"], db.progress_map())
+    direction = modes.get_direction(request)
+    due = _due(deck["cards"], db.progress_map(), direction)
+    cards = [modes.card_view(c, direction) for c in due]
     return templates.TemplateResponse(
         "review.html",
-        {"request": request, "deck": deck, "card": due[0] if due else None, "remaining": len(due)},
+        {
+            "request": request,
+            "deck": deck,
+            "card": cards[0] if cards else None,
+            "remaining": len(cards),
+            "direction": direction,
+            "labels": modes.LABELS,
+            "next": f"/review/{deck['id']}",
+        },
     )
 
 
-@app.post("/review/{deck_id}/grade", response_class=HTMLResponse)
-def review_grade(request: Request, deck_id: str, card_id: str = Form(...), correct: str = Form(...)):
+@app.get("/review/{deck_id}/next", response_class=HTMLResponse)
+def review_next(request: Request, deck_id: str):
+    """Render the next due card (used by the 'Next' button after a check)."""
     if (r := _redirect_if_anon(request)) is not None:
         return r
-    is_correct = correct == "1"
-    box, next_due = srs.next_state(db.get_progress(card_id), is_correct)
-    db.record_review(card_id, box, next_due, is_correct)
-
     deck = content.get_deck(deck_id)
-    due = _due(deck["cards"], db.progress_map())
+    if not deck:
+        return RedirectResponse("/", status_code=303)
+    direction = modes.get_direction(request)
+    due = _due(deck["cards"], db.progress_map(), direction)
+    cards = [modes.card_view(c, direction) for c in due]
     return templates.TemplateResponse(
         "_review_inner.html",
-        {"request": request, "deck": deck, "card": due[0] if due else None, "remaining": len(due)},
+        {"request": request, "deck": deck, "card": cards[0] if cards else None, "remaining": len(cards)},
+    )
+
+
+@app.post("/review/{deck_id}/check", response_class=HTMLResponse)
+def review_check(
+    request: Request,
+    deck_id: str,
+    card_id: str = Form(...),
+    attempt: str = Form(""),
+    reveal: str = Form(""),
+):
+    """Check a typed translation, grade the card, and show the result."""
+    if (r := _redirect_if_anon(request)) is not None:
+        return r
+    deck = content.get_deck(deck_id)
+    raw = next((c for c in deck["cards"] if c["id"] == card_id), None) if deck else None
+    if not raw:
+        return RedirectResponse("/", status_code=303)
+
+    direction = modes.get_direction(request)
+    card = modes.card_view(raw, direction)
+    pid = modes.progress_id(card_id, direction)
+
+    is_correct = False if reveal == "1" else grading.check_answer(attempt, card["answer"])
+    box, next_due = srs.next_state(db.get_progress(pid), is_correct)
+    db.record_review(pid, box, next_due, is_correct)
+
+    due = _due(deck["cards"], db.progress_map(), direction)
+    return templates.TemplateResponse(
+        "_review_result.html",
+        {
+            "request": request,
+            "deck": deck,
+            "card": card,
+            "correct": is_correct,
+            "attempt": attempt,
+            "remaining": len(due),
+        },
     )
 
 
@@ -121,50 +189,98 @@ def sentences(request: Request, deck_id: str):
     deck = content.get_deck(deck_id)
     if not deck:
         return RedirectResponse("/", status_code=303)
-    due = _due(deck["sentences"], db.progress_map())
+    direction = modes.get_direction(request)
+    due = _due(deck["sentences"], db.progress_map(), direction)
+    items = [modes.sentence_view(s, direction) for s in due]
     return templates.TemplateResponse(
         "sentences.html",
         {
             "request": request,
             "deck": deck,
-            "item": due[0] if due else None,
-            "remaining": len(due),
+            "item": items[0] if items else None,
+            "remaining": len(items),
             "claude_enabled": settings.claude_enabled,
+            "direction": direction,
+            "labels": modes.LABELS,
+            "next": f"/sentences/{deck['id']}",
         },
     )
 
 
-@app.post("/sentences/{deck_id}/grade", response_class=HTMLResponse)
-def sentences_grade(request: Request, deck_id: str, item_id: str = Form(...), correct: str = Form(...)):
+@app.get("/sentences/{deck_id}/next", response_class=HTMLResponse)
+def sentences_next(request: Request, deck_id: str):
+    """Render the next due sentence (used by the 'Next' button after a check)."""
     if (r := _redirect_if_anon(request)) is not None:
         return r
-    is_correct = correct == "1"
-    box, next_due = srs.next_state(db.get_progress(item_id), is_correct)
-    db.record_review(item_id, box, next_due, is_correct)
-
     deck = content.get_deck(deck_id)
-    due = _due(deck["sentences"], db.progress_map())
+    if not deck:
+        return RedirectResponse("/", status_code=303)
+    direction = modes.get_direction(request)
+    due = _due(deck["sentences"], db.progress_map(), direction)
+    items = [modes.sentence_view(s, direction) for s in due]
     return templates.TemplateResponse(
         "_sentence_inner.html",
         {
             "request": request,
             "deck": deck,
-            "item": due[0] if due else None,
-            "remaining": len(due),
+            "item": items[0] if items else None,
+            "remaining": len(items),
             "claude_enabled": settings.claude_enabled,
         },
     )
 
 
 @app.post("/sentences/{deck_id}/check", response_class=HTMLResponse)
-async def sentences_check(request: Request, deck_id: str, item_id: str = Form(...), attempt: str = Form("")):
+def sentences_check(
+    request: Request,
+    deck_id: str,
+    item_id: str = Form(...),
+    attempt: str = Form(""),
+    reveal: str = Form(""),
+):
+    """Check a typed sentence translation, grade it, and show the result."""
+    if (r := _redirect_if_anon(request)) is not None:
+        return r
+    deck = content.get_deck(deck_id)
+    raw = next((s for s in deck["sentences"] if s["id"] == item_id), None) if deck else None
+    if not raw:
+        return RedirectResponse("/", status_code=303)
+
+    direction = modes.get_direction(request)
+    item = modes.sentence_view(raw, direction)
+    pid = modes.progress_id(item_id, direction)
+
+    is_correct = False if reveal == "1" else grading.check_answer(attempt, item["answer"])
+    box, next_due = srs.next_state(db.get_progress(pid), is_correct)
+    db.record_review(pid, box, next_due, is_correct)
+
+    due = _due(deck["sentences"], db.progress_map(), direction)
+    return templates.TemplateResponse(
+        "_sentence_result.html",
+        {
+            "request": request,
+            "deck": deck,
+            "item": item,
+            "correct": is_correct,
+            "attempt": attempt,
+            "remaining": len(due),
+            "claude_enabled": settings.claude_enabled,
+            "direction": direction,
+        },
+    )
+
+
+@app.post("/sentences/{deck_id}/feedback", response_class=HTMLResponse)
+async def sentences_feedback(request: Request, deck_id: str, item_id: str = Form(...), attempt: str = Form("")):
+    """Optional richer feedback from Claude on a sentence translation."""
     if (r := _redirect_if_anon(request)) is not None:
         return r
     deck = content.get_deck(deck_id)
     item = next((s for s in deck["sentences"] if s["id"] == item_id), None) if deck else None
     if not item:
         return HTMLResponse("")
-    feedback = await translate.grade_translation(item["es"], item["en"], attempt)
+    direction = modes.get_direction(request)
+    feedback = await translate.grade_translation(item["es"], item["en"], attempt, direction)
     return templates.TemplateResponse(
         "_feedback.html", {"request": request, "feedback": feedback or ""}
     )

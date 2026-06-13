@@ -6,9 +6,14 @@ from .config import settings
 MODEL = "claude-haiku-4-5-20251001"
 
 
-async def grade_translation(spanish: str, reference_en: str, attempt: str) -> str | None:
+async def grade_translation(
+    spanish: str, english: str, attempt: str, direction: str = "es2en"
+) -> str | None:
     """Ask Claude to gently evaluate the learner's translation.
 
+    `direction` is "es2en" (they translated the Spanish into English) or
+    "en2es" (they translated the English into Spanish), which decides which
+    sentence is the prompt and which language their attempt should be in.
     Returns feedback text, or None if no API key is configured.
     """
     if not settings.claude_enabled:
@@ -17,11 +22,16 @@ async def grade_translation(spanish: str, reference_en: str, attempt: str) -> st
     if not attempt.strip():
         return "Type your translation first, then check it."
 
+    if direction == "en2es":
+        source, source_text, reference, target_lang = "English", english, spanish, "Spanish"
+    else:
+        source, source_text, reference, target_lang = "Spanish", spanish, english, "English"
+
     prompt = (
         "You are a patient Spanish tutor. Evaluate a learner's translation.\n\n"
-        f"Spanish sentence: {spanish}\n"
-        f"A reference English translation: {reference_en}\n"
-        f"The learner wrote: {attempt}\n\n"
+        f"{source} sentence: {source_text}\n"
+        f"A reference {target_lang} translation: {reference}\n"
+        f"The learner wrote (in {target_lang}): {attempt}\n\n"
         "In 2-3 short sentences: say whether their translation is essentially correct, "
         "then point out any grammar or word-choice issues and suggest a more natural "
         "phrasing if useful. Be encouraging. Do not just repeat the reference."
