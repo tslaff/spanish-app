@@ -13,6 +13,7 @@ work nicely from your phone.
 | `app/srs.py` | Leitner spaced-repetition logic |
 | `app/db.py` | SQLite progress storage |
 | `app/content.py` | Loads lessons from `content/*.yaml` |
+| `app/modes.py` | Translation direction (ES↔EN) and per-direction progress |
 | `app/grading.py` | Accent-insensitive checking of typed translations |
 | `app/translate.py` | Optional Claude-powered translation feedback |
 | `content/*.yaml` | Your vocabulary and sentences |
@@ -69,13 +70,26 @@ Commit and push — Railway redeploys and the lesson appears. Progress is keyed
 to each card's `front` text, so editing the back/notes keeps your history;
 changing the front text starts that card fresh.
 
+## Two directions: ES → EN and EN → ES
+
+Every screen (dashboard, flashcards, sentences) has a toggle at the top to
+switch between **Spanish → English** and **English → Spanish**. The toggle
+flips which side is the prompt and which side you type:
+
+- **ES → EN** — see the Spanish, type the English (recognition).
+- **EN → ES** — see the English, type the Spanish (production).
+
+Your choice is remembered for the session. Progress is tracked **separately per
+direction** — recognising a word and producing it are different skills, so each
+card has its own spaced-repetition schedule in each direction, and the "due"
+counts on the dashboard reflect the direction you're currently in.
+
 ## Checking your answers
 
 Both flashcards and sentences let you **type the translation and check it**.
-On a flashcard you see the Spanish word and type its English meaning; on the
-sentence screen you type your English translation. Hit **Check** (or press
-Enter) and the app tells you whether you're right, then reveals the expected
-answer and any notes.
+You see the prompt (in whichever language the current direction shows) and type
+the translation. Hit **Check** (or press Enter) and the app tells you whether
+you're right, then reveals the expected answer and any notes.
 
 The check **ignores accents and diacritics**, case, and surrounding
 punctuation — so `buenos dias` matches `buenos días` and `Hello!` matches
