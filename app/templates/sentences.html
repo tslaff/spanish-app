@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="topbar">
+  <a href="/" class="muted">&larr; Lessons</a>
+  <h1>{{ deck.name }} · sentences</h1>
+</div>
+<div id="sentence-area">
+  {% include "_sentence_inner.html" %}
+</div>
+{% endblock %}

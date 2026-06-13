@@ -1,0 +1,31 @@
+# Each file in this folder is one lesson/deck.
+# Add a new lesson by copying this file and editing it, then git push.
+id: greetings
+name: "Greetings & basics"
+
+cards:
+  - front: "hola"
+    back: "hello"
+  - front: "buenos días"
+    back: "good morning"
+  - front: "buenas noches"
+    back: "good night"
+  - front: "¿cómo estás?"
+    back: "how are you?"
+    notes: "Informal. Use ¿cómo está? when being polite/formal."
+  - front: "gracias"
+    back: "thank you"
+  - front: "de nada"
+    back: "you're welcome"
+  - front: "por favor"
+    back: "please"
+  - front: "adiós"
+    back: "goodbye"
+
+sentences:
+  - es: "Hola, ¿cómo estás hoy?"
+    en: "Hello, how are you today?"
+  - es: "Buenos días, me llamo Ana."
+    en: "Good morning, my name is Ana."
+  - es: "Muchas gracias por tu ayuda."
+    en: "Thank you very much for your help."

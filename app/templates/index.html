@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Your lessons</h1>
+{% if not decks %}
+  <p class="muted">No lessons found. Add a YAML file to the <code>content/</code> folder.</p>
+{% endif %}
+{% for d in decks %}
+<div class="deck">
+  <h2>{{ d.name }}</h2>
+  <div class="deck-rows">
+    <a class="deck-row" href="/review/{{ d.id }}">
+      <span>Flashcards</span>
+      <span class="count {% if d.vocab_due %}due{% endif %}">{{ d.vocab_due }} due / {{ d.vocab_total }}</span>
+    </a>
+    {% if d.sent_total %}
+    <a class="deck-row" href="/sentences/{{ d.id }}">
+      <span>Translate sentences</span>
+      <span class="count {% if d.sent_due %}due{% endif %}">{{ d.sent_due }} due / {{ d.sent_total }}</span>
+    </a>
+    {% endif %}
+  </div>
+</div>
+{% endfor %}
+{% endblock %}

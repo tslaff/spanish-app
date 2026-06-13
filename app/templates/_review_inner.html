@@ -1,0 +1,33 @@
+{% if card %}
+<div class="counter muted">{{ remaining }} due</div>
+<div class="card">
+  <div class="front">{{ card.front }}</div>
+  <div class="back" hidden>
+    <div class="answer">{{ card.back }}</div>
+    {% if card.notes %}<div class="notes">{{ card.notes }}</div>{% endif %}
+  </div>
+</div>
+
+<div class="controls">
+  <button class="primary reveal"
+          onclick="this.closest('.controls').previousElementSibling.querySelector('.back').hidden=false;
+                   this.hidden=true; this.nextElementSibling.hidden=false;">
+    Show answer
+  </button>
+  <div class="grade" hidden>
+    <button class="danger"
+            hx-post="/review/{{ deck.id }}/grade"
+            hx-vals='{"card_id": "{{ card.id }}", "correct": "0"}'
+            hx-target="#review-area" hx-swap="innerHTML">Missed it</button>
+    <button class="success"
+            hx-post="/review/{{ deck.id }}/grade"
+            hx-vals='{"card_id": "{{ card.id }}", "correct": "1"}'
+            hx-target="#review-area" hx-swap="innerHTML">Got it</button>
+  </div>
+</div>
+{% else %}
+<div class="done">
+  <p>All caught up here. Nothing more due right now.</p>
+  <a class="primary" href="/">Back to lessons</a>
+</div>
+{% endif %}

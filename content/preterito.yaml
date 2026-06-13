@@ -1,0 +1,351 @@
+id: spanish_past_tenses_master
+name: "Spanish Past Tenses Master Deck"
+
+cards:
+  # Pretérito indefinido vocabulary
+  - front: "llegar"
+    back: "to arrive"
+
+  - front: "poder"
+    back: "to be able to / can"
+
+  - front: "tener"
+    back: "to have"
+
+  - front: "decir"
+    back: "to say / tell"
+
+  - front: "ver"
+    back: "to see"
+
+  - front: "poner"
+    back: "to put"
+
+  - front: "traer"
+    back: "to bring"
+
+  - front: "venir"
+    back: "to come"
+
+  - front: "hacer"
+    back: "to do / make"
+
+  - front: "creer"
+    back: "to believe"
+
+  - front: "darse cuenta de que"
+    back: "to realize that"
+
+  - front: "pasarlo bien"
+    back: "to have a good time"
+
+  - front: "salir bien"
+    back: "to go well / turn out well"
+
+  # Ser y estar reference
+  - front: "ser"
+    back: "to be (identity, characteristics, events)"
+    notes: "Used for what something is."
+
+  - front: "estar"
+    back: "to be (state, feeling, location)"
+    notes: "Used for how something is."
+
+  - front: "ser (imperfecto)"
+    back: "era, eras, era, éramos, erais, eran"
+    notes: "Descriptions, characteristics, age, identity in the past"
+
+  - front: "ser (pretérito indefinido)"
+    back: "fui, fuiste, fue, fuimos, fuisteis, fueron"
+    notes: "Completed events, evaluations of finished events"
+
+  - front: "ser (pretérito perfecto)"
+    back: "he sido, has sido, ha sido, hemos sido, habéis sido, han sido"
+    notes: "Experiences or situations connected to the present"
+
+  - front: "estar (imperfecto)"
+    back: "estaba, estabas, estaba, estábamos, estabais, estaban"
+    notes: "Ongoing states, feelings, locations in the past"
+
+  - front: "estar (pretérito indefinido)"
+    back: "estuve, estuviste, estuvo, estuvimos, estuvisteis, estuvieron"
+    notes: "Completed states or periods"
+
+  - front: "estar (pretérito perfecto)"
+    back: "he estado, has estado, ha estado, hemos estado, habéis estado, han estado"
+    notes: "States connected to the present"
+
+sentences:
+  # Pretérito indefinido practice
+  - es: "Cuando llegué a casa, vi que mis amigos ya habían salido."
+    en: "When I arrived home, I saw that my friends had already left."
+
+  - es: "El verano pasado fuimos a la playa todos los fines de semana y gastamos mucho dinero."
+    en: "Last summer we went to the beach every weekend and spent a lot of money."
+
+  - es: "Ella me dijo algo importante, pero no comprendí lo que dijo."
+    en: "She told me something important, but I didn't understand what she said."
+
+  - es: "Ayer tuve una reunión, terminé el trabajo tarde y llegué a casa muy cansado."
+    en: "Yesterday I had a meeting, finished work late, and came home exhausted."
+
+  - es: "No pudieron venir porque tuvieron muchos problemas con el tren."
+    en: "They couldn't come because they had many problems with the train."
+
+  - es: "Anoche estuvimos en casa de Jaime y todos se lo pasaron muy bien."
+    en: "Last night we were at Jaime's house and everyone had a great time."
+
+  - es: "Les traje vino a mis padres porque me ayudaron a mudarme."
+    en: "I brought my parents some wine because they helped me move."
+
+  - es: "Cuando el concierto terminó, salimos y vimos a mucha gente en la calle."
+    en: "When the concert ended, we went out and saw many people in the street."
+
+  - es: "Ayer por la mañana puse las llaves en la mesa y luego olvidé dónde estaban."
+    en: "Yesterday morning I put the keys on the table and then forgot where they were."
+
+  - es: "Me dio algunos consejos, pero no la escuché."
+    en: "She gave me some advice, but I didn't listen to her."
+
+  - es: "Llegué tarde porque no pude encontrar mis llaves."
+    en: "I arrived late because I couldn't find my keys."
+
+  - es: "Llegamos a casa muy tarde porque la fiesta terminó a las tres de la mañana."
+    en: "We came home very late because the party ended at three in the morning."
+
+  - es: "La semana pasada fui a Valencia, vi a viejos amigos y me lo pasé genial."
+    en: "Last weekend I went to Valencia, saw old friends, and had a great time."
+
+  - es: "Nos dijeron la verdad, pero no les creímos."
+    en: "They told us the truth, but we didn't believe them."
+
+  - es: "Ayer cociné la cena, puse una película y me dormí en el sofá."
+    en: "Yesterday I made dinner, put on a movie, and fell asleep on the sofa."
+
+  - es: "Cuando abrí la puerta, me di cuenta de que había alguien dentro."
+    en: "When I opened the door, I realized that someone was inside."
+
+  - es: "Mis padres me trajeron algo de comida porque sabían que estaba ocupado."
+    en: "My parents brought me some food because they knew I was busy."
+
+  - es: "Tuvimos muchos problemas durante el viaje, pero al final todo salió bien."
+    en: "We had many problems during the trip, but in the end everything went well."
+
+  - es: "Lo vi ayer, pero no dije nada porque parecía muy cansado."
+    en: "I saw him yesterday, but I didn't say anything because he looked tired."
+
+  - es: "Ella puso las llaves en la mesa y olvidó dónde estaban."
+    en: "She put the keys on the table and then forgot where they were."
+
+  # Short review sentences
+  - es: "Me di cuenta de que había alguien dentro."
+    en: "I realized that there was someone inside."
+
+  - es: "Al final todo salió bien."
+    en: "In the end everything went well."
+
+  - es: "Nos lo pasamos muy bien."
+    en: "We had a great time."
+
+  - es: "No les creímos."
+    en: "We didn't believe them."
+
+  - es: "No pude encontrar mis llaves."
+    en: "I couldn't find my keys."
+
+  - es: "Olvidé dónde estaban."
+    en: "I forgot where they were."
+
+  - es: "Vi a mucha gente en la calle."
+    en: "I saw many people in the street."
+
+  - es: "Me ayudaron a mudarme."
+    en: "They helped me move."
+
+  - es: "Sabían que estaba ocupado."
+    en: "They knew I was busy."
+
+  # Ser y estar in the past
+  - es: "Cuando era más joven, pensaba que trabajar hasta tarde era normal."
+    en: "When I was younger, I used to think that working late was normal."
+
+  - es: "Ayer la reunión fue en Barcelona y todos estaban muy estresados."
+    en: "Yesterday the meeting was in Barcelona, but everyone was very stressed."
+
+  - es: "Esta semana hemos estado muy ocupados y no hemos visto a nuestros amigos."
+    en: "This week we have been very busy and we haven’t seen our friends."
+
+  - es: "Cuando ella llegó, estaba hablando con mi jefe y no pude responder."
+    en: "When she arrived, I was talking with my boss and I couldn’t answer."
+
+  - es: "El viaje fue increíble, aunque el hotel era un poco viejo."
+    en: "The trip was incredible, although the hotel was a bit old."
+
+  - es: "Anoche estaban en casa porque estaban demasiado cansados para salir."
+    en: "Last night they were at home because they were too tired to go out."
+
+  - es: "Mis abuelos siempre decían que la vida era diferente antes."
+    en: "My grandparents always said that life was different before."
+
+  - es: "Cuando era joven, era muy tímido."
+    en: "When I was young, I was very shy."
+
+  - es: "Mi profesor era muy estricto."
+    en: "My teacher was very strict."
+
+  - es: "La casa era grande."
+    en: "The house was big."
+
+  - es: "La conferencia fue en Valencia."
+    en: "The conference was in Valencia."
+
+  - es: "La fiesta fue increíble."
+    en: "The party was incredible."
+
+  - es: "El hotel era viejo."
+    en: "The hotel was old."
+
+  - es: "El hotel estaba vacío."
+    en: "The hotel was empty."
+
+  - es: "Estábamos cansados."
+    en: "We were tired."
+
+  - es: "La comida estaba fría."
+    en: "The food was cold."
+
+  - es: "Cuando llegué, estaban cenando."
+    en: "When I arrived, they were having dinner."
+
+  - es: "Cuando llamó, estaba trabajando."
+    en: "When he/she called, I was working."
+
+  - es: "Cuando entró, estábamos viendo una película."
+    en: "When he/she entered, we were watching a movie."
+
+  - es: "Era normal trabajar los sábados."
+    en: "It was normal to work on Saturdays."
+
+  - es: "Hoy estoy normal, ni bien ni mal."
+    en: "Today I feel normal, neither good nor bad."
+
+  # Advanced ser vs estar practice
+  - es: "Ayer el concierto fue excelente."
+    en: "The concert was amazing yesterday."
+
+  - es: "Este mes ha sido difícil."
+    en: "This month has been difficult."
+
+  - es: "La reunión fue en Barcelona."
+    en: "The meeting was in Barcelona."
+
+  - es: "Cuando éramos niños, éramos muy enérgicos."
+    en: "When we were children, we were very energetic."
+
+  - es: "La fiesta fue aburrida."
+    en: "The party was boring."
+
+  - es: "La gente estaba aburrida."
+    en: "The people were bored."
+
+  - es: "Yo estaba aburrido en la fiesta."
+    en: "I was bored at the party."
+
+  - es: "Cuando vivía en Madrid, mi piso era muy pequeño."
+    en: "When I lived in Madrid, my apartment was very small."
+
+  - es: "La boda fue preciosa el sábado pasado."
+    en: "The wedding was beautiful last Saturday."
+
+  - es: "Esta semana ha sido muy ocupada."
+    en: "This week has been very busy."
+
+  - es: "Mi abuelo era médico."
+    en: "My grandfather was a doctor."
+
+  - es: "Hoy he estado muy ocupado."
+    en: "Today I have been very busy."
+
+  - es: "Cuando vivía en Barcelona, siempre estaba cansado."
+    en: "When I lived in Barcelona, I was always tired."
+
+  - es: "Ayer estuve en casa todo el día."
+    en: "Yesterday I was at home all day."
+
+  - es: "Esta semana he estado un poco enfermo."
+    en: "This week I have been a little sick."
+
+  - es: "Durante la reunión estuve nervioso."
+    en: "During the meeting I was nervous."
+
+  - es: "Durante el viaje, estábamos muy relajados."
+    en: "During the trip, we were very relaxed."
+
+  - es: "El hotel fue muy caro, pero yo estaba muy contento."
+    en: "The hotel was very expensive, but I was very happy."
+
+  - es: "Cuando éramos jóvenes, siempre estábamos cansados después del trabajo."
+    en: "When we were young, we were always tired after work."
+
+  - es: "La reunión fue ayer y fue bastante larga."
+    en: "The meeting was yesterday and it was quite long."
+
+  - es: "Este mes ha sido muy intenso, pero hemos estado bien."
+    en: "This month has been very intense, but we have been well."
+
+  - es: "Cuando era más joven, era muy impaciente, pero mi hermano siempre era muy tranquilo."
+    en: "When I was younger, I was very impatient, but my brother was always calm."
+
+  - es: "La conferencia fue en Valencia y fue más interesante de lo que esperaba."
+    en: "The conference was in Valencia and it was more interesting than I expected."
+
+  - es: "Este mes ha sido estresante porque hemos estado muy ocupados."
+    en: "This month has been stressful because we have been very busy."
+
+  - es: "Durante la cena, todos estaban relajados, pero el ambiente era extraño."
+    en: "During dinner, everyone was relaxed but the atmosphere was strange."
+
+  - es: "Cuando llegamos, la tienda estaba cerrada y el dueño no estaba allí."
+    en: "When we arrived, the shop was closed and the owner was not there."
+
+  - es: "El año pasado, nuestras vacaciones fueron increíbles, pero el hotel fue demasiado caro."
+    en: "Last year, our holidays were incredible, but the hotel was too expensive."
+
+  - es: "Estuve decepcionado porque la reunión fue más corta de lo que esperaba."
+    en: "I was disappointed because the meeting was shorter than expected."
+
+  - es: "Cuando vivía en Madrid, estaba a menudo en la oficina hasta tarde."
+    en: "When I lived in Madrid, I was often in the office until late."
+
+  - es: "Esta semana ha sido difícil, pero hoy he estado mucho más tranquilo."
+    en: "This week has been difficult, but today I have been much calmer."
+
+  - es: "La fiesta fue en casa de Jaime y, aunque la música fue buena, estaba un poco aburrido."
+    en: "The party was at Jaime's house, and although the music was good, I was a little bored."
+
+  - es: "Ayer estuve nervioso."
+    en: "Yesterday I was nervous."
+
+  - es: "El concierto fue excelente."
+    en: "The concert was excellent."
+
+  - es: "Cuando era niño, era tranquilo."
+    en: "When I was a child, I was quiet."
+
+  - es: "Durante el viaje, estuvimos muy contentos."
+    en: "During the trip, we were very happy."
+
+  - es: "El restaurante estaba cerrado ayer."
+    en: "The restaurant was closed yesterday."
+
+  - es: "El hotel estaba lejos."
+    en: "The hotel was far away."
+
+  - es: "Hoy he estado en casa todo el día."
+    en: "I have been at home all day today."
+
+  - es: "El viaje fue increíble, pero el hotel estaba lejos."
+    en: "The trip was amazing, but the hotel was far away."
+
+  - es: "Mi abuelo era médico y era muy serio."
+    en: "My grandfather was a doctor and he was very serious."
