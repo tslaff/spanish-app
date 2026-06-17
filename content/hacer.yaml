@@ -1,0 +1,193 @@
+id: hacer
+name: "Hacer"
+
+cards:
+  - front: "hacer"
+    back: "to do / to make"
+
+  # Presente
+  - front: "hacer (presente - yo)"
+    back: "hago"
+  - front: "hacer (presente - tú)"
+    back: "haces"
+  - front: "hacer (presente - él/ella)"
+    back: "hace"
+  - front: "hacer (presente - nosotros)"
+    back: "hacemos"
+  - front: "hacer (presente - vosotros)"
+    back: "hacéis"
+  - front: "hacer (presente - ellos)"
+    back: "hacen"
+
+  # Pretérito indefinido
+  - front: "hacer (pretérito indefinido - yo)"
+    back: "hice"
+  - front: "hacer (pretérito indefinido - tú)"
+    back: "hiciste"
+  - front: "hacer (pretérito indefinido - él/ella)"
+    back: "hizo"
+  - front: "hacer (pretérito indefinido - nosotros)"
+    back: "hicimos"
+  - front: "hacer (pretérito indefinido - vosotros)"
+    back: "hicisteis"
+  - front: "hacer (pretérito indefinido - ellos)"
+    back: "hicieron"
+
+  # Pretérito imperfecto
+  - front: "hacer (pretérito imperfecto - yo)"
+    back: "hacía"
+  - front: "hacer (pretérito imperfecto - tú)"
+    back: "hacías"
+  - front: "hacer (pretérito imperfecto - él/ella)"
+    back: "hacía"
+  - front: "hacer (pretérito imperfecto - nosotros)"
+    back: "hacíamos"
+  - front: "hacer (pretérito imperfecto - vosotros)"
+    back: "hacíais"
+  - front: "hacer (pretérito imperfecto - ellos)"
+    back: "hacían"
+
+  # Pretérito perfecto
+  - front: "hacer (pretérito perfecto - yo)"
+    back: "he hecho"
+  - front: "hacer (pretérito perfecto - tú)"
+    back: "has hecho"
+  - front: "hacer (pretérito perfecto - él/ella)"
+    back: "ha hecho"
+  - front: "hacer (pretérito perfecto - nosotros)"
+    back: "hemos hecho"
+  - front: "hacer (pretérito perfecto - vosotros)"
+    back: "habéis hecho"
+  - front: "hacer (pretérito perfecto - ellos)"
+    back: "han hecho"
+
+  # Futuro
+  - front: "hacer (futuro - yo)"
+    back: "haré"
+  - front: "hacer (futuro - tú)"
+    back: "harás"
+  - front: "hacer (futuro - él/ella)"
+    back: "hará"
+  - front: "hacer (futuro - nosotros)"
+    back: "haremos"
+  - front: "hacer (futuro - vosotros)"
+    back: "haréis"
+  - front: "hacer (futuro - ellos)"
+    back: "harán"
+
+  # Expresiones comunes
+  - front: "hacer frío"
+    back: "to be cold (weather)"
+  - front: "hacer calor"
+    back: "to be hot (weather)"
+  - front: "hacer sol"
+    back: "to be sunny"
+  - front: "hacer viento"
+    back: "to be windy"
+  - front: "hacer buen tiempo"
+    back: "to have good weather"
+  - front: "hacer mal tiempo"
+    back: "to have bad weather"
+  - front: "hacer ejercicio"
+    back: "to exercise"
+  - front: "hacer una pregunta"
+    back: "to ask a question"
+  - front: "hacer una llamada"
+    back: "to make a phone call"
+  - front: "hacer una reserva"
+    back: "to make a reservation"
+  - front: "hacer fotos"
+    back: "to take photos"
+  - front: "hacer daño"
+    back: "to hurt"
+  - front: "hacer caso"
+    back: "to pay attention"
+  - front: "hacer falta"
+    back: "to need / to be necessary"
+  - front: "hacer la cena"
+    back: "to make dinner"
+  - front: "hacer los deberes"
+    back: "to do homework"
+  - front: "hacer una presentación"
+    back: "to give a presentation"
+  - front: "hacer un informe"
+    back: "to make a report"
+
+sentences:
+  - es: "Hoy hace mucho frío."
+    en: "It is very cold today."
+
+  - es: "En agosto suele hacer mucho calor en Madrid."
+    en: "In August it is usually very hot in Madrid."
+
+  - es: "Mañana hará sol."
+    en: "Tomorrow it will be sunny."
+
+  - es: "Ayer hizo viento todo el día."
+    en: "Yesterday it was windy all day."
+
+  - es: "Cuando hace buen tiempo, salimos a caminar."
+    en: "When the weather is good, we go for a walk."
+
+  - es: "Hoy hace mal tiempo y está lloviendo."
+    en: "The weather is bad today and it is raining."
+
+  - es: "Hago ejercicio tres veces por semana."
+    en: "I exercise three times a week."
+
+  - es: "Ayer hice ejercicio después del trabajo."
+    en: "Yesterday I exercised after work."
+
+  - es: "Cuando era joven, hacía ejercicio todos los días."
+    en: "When I was young, I exercised every day."
+
+  - es: "He hecho ejercicio esta mañana."
+    en: "I have exercised this morning."
+
+  - es: "Haré ejercicio mañana antes de trabajar."
+    en: "I will exercise tomorrow before work."
+
+  - es: "El estudiante hizo una pregunta interesante."
+    en: "The student asked an interesting question."
+
+  - es: "Necesito hacer una llamada importante."
+    en: "I need to make an important phone call."
+
+  - es: "Hemos hecho una reserva para el restaurante."
+    en: "We have made a reservation for the restaurant."
+
+  - es: "Durante el viaje hicimos muchas fotos."
+    en: "We took many photos during the trip."
+
+  - es: "Me hace daño la espalda."
+    en: "My back hurts."
+
+  - es: "No me hizo caso cuando le hablé."
+    en: "He didn't pay attention to me when I spoke to him."
+
+  - es: "Me hace falta más tiempo para terminar el proyecto."
+    en: "I need more time to finish the project."
+
+  - es: "Anoche hice la cena para toda la familia."
+    en: "Last night I made dinner for the whole family."
+
+  - es: "Los niños hicieron los deberes después de clase."
+    en: "The children did their homework after class."
+
+  - es: "Mi cofundadora hizo una presentación a los inversores."
+    en: "My co-founder gave a presentation to the investors."
+
+  - es: "Hicimos un informe sobre el rendimiento de la campaña."
+    en: "We made a report about the campaign's performance."
+
+  - es: "Ha hecho mucho calor esta semana."
+    en: "It has been very hot this week."
+
+  - es: "Hacía mucho frío cuando vivía en Holanda."
+    en: "It used to be very cold when I lived in the Netherlands."
+
+  - es: "Hace dos años que vivo en Madrid."
+    en: "I have lived in Madrid for two years."
+
+  - es: "No hablamos desde hace mucho tiempo."
+    en: "We haven't spoken for a long time."

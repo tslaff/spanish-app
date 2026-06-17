@@ -1,0 +1,226 @@
+id: ser_vs_estar
+name: "Ser vs Estar"
+
+cards:
+  # SER - Presente
+  - front: "ser (presente - yo)"
+    back: "soy"
+  - front: "ser (presente - tú)"
+    back: "eres"
+  - front: "ser (presente - él/ella)"
+    back: "es"
+  - front: "ser (presente - nosotros)"
+    back: "somos"
+  - front: "ser (presente - vosotros)"
+    back: "sois"
+  - front: "ser (presente - ellos)"
+    back: "son"
+
+  # SER - Pretérito indefinido
+  - front: "ser (pretérito indefinido - yo)"
+    back: "fui"
+  - front: "ser (pretérito indefinido - tú)"
+    back: "fuiste"
+  - front: "ser (pretérito indefinido - él/ella)"
+    back: "fue"
+  - front: "ser (pretérito indefinido - nosotros)"
+    back: "fuimos"
+  - front: "ser (pretérito indefinido - vosotros)"
+    back: "fuisteis"
+  - front: "ser (pretérito indefinido - ellos)"
+    back: "fueron"
+
+  # SER - Imperfecto
+  - front: "ser (pretérito imperfecto - yo)"
+    back: "era"
+  - front: "ser (pretérito imperfecto - tú)"
+    back: "eras"
+  - front: "ser (pretérito imperfecto - él/ella)"
+    back: "era"
+  - front: "ser (pretérito imperfecto - nosotros)"
+    back: "éramos"
+  - front: "ser (pretérito imperfecto - vosotros)"
+    back: "erais"
+  - front: "ser (pretérito imperfecto - ellos)"
+    back: "eran"
+
+  # SER - Pretérito perfecto
+  - front: "ser (pretérito perfecto - yo)"
+    back: "he sido"
+  - front: "ser (pretérito perfecto - tú)"
+    back: "has sido"
+  - front: "ser (pretérito perfecto - él/ella)"
+    back: "ha sido"
+  - front: "ser (pretérito perfecto - nosotros)"
+    back: "hemos sido"
+  - front: "ser (pretérito perfecto - vosotros)"
+    back: "habéis sido"
+  - front: "ser (pretérito perfecto - ellos)"
+    back: "han sido"
+
+  # ESTAR - Presente
+  - front: "estar (presente - yo)"
+    back: "estoy"
+  - front: "estar (presente - tú)"
+    back: "estás"
+  - front: "estar (presente - él/ella)"
+    back: "está"
+  - front: "estar (presente - nosotros)"
+    back: "estamos"
+  - front: "estar (presente - vosotros)"
+    back: "estáis"
+  - front: "estar (presente - ellos)"
+    back: "están"
+
+  # ESTAR - Pretérito indefinido
+  - front: "estar (pretérito indefinido - yo)"
+    back: "estuve"
+  - front: "estar (pretérito indefinido - tú)"
+    back: "estuviste"
+  - front: "estar (pretérito indefinido - él/ella)"
+    back: "estuvo"
+  - front: "estar (pretérito indefinido - nosotros)"
+    back: "estuvimos"
+  - front: "estar (pretérito indefinido - vosotros)"
+    back: "estuvisteis"
+  - front: "estar (pretérito indefinido - ellos)"
+    back: "estuvieron"
+
+  # ESTAR - Imperfecto
+  - front: "estar (pretérito imperfecto - yo)"
+    back: "estaba"
+  - front: "estar (pretérito imperfecto - tú)"
+    back: "estabas"
+  - front: "estar (pretérito imperfecto - él/ella)"
+    back: "estaba"
+  - front: "estar (pretérito imperfecto - nosotros)"
+    back: "estábamos"
+  - front: "estar (pretérito imperfecto - vosotros)"
+    back: "estabais"
+  - front: "estar (pretérito imperfecto - ellos)"
+    back: "estaban"
+
+  # ESTAR - Pretérito perfecto
+  - front: "estar (pretérito perfecto - yo)"
+    back: "he estado"
+  - front: "estar (pretérito perfecto - tú)"
+    back: "has estado"
+  - front: "estar (pretérito perfecto - él/ella)"
+    back: "ha estado"
+  - front: "estar (pretérito perfecto - nosotros)"
+    back: "hemos estado"
+  - front: "estar (pretérito perfecto - vosotros)"
+    back: "habéis estado"
+  - front: "estar (pretérito perfecto - ellos)"
+    back: "han estado"
+
+  # SER - usos comunes
+  - front: "ser inteligente"
+    back: "to be intelligent"
+  - front: "ser alto"
+    back: "to be tall"
+  - front: "ser amable"
+    back: "to be kind"
+  - front: "ser difícil"
+    back: "to be difficult"
+  - front: "ser de España"
+    back: "to be from Spain"
+  - front: "ser médico"
+    back: "to be a doctor"
+  - front: "ser importante"
+    back: "to be important"
+
+  # ESTAR - usos comunes
+  - front: "estar cansado"
+    back: "to be tired"
+  - front: "estar ocupado"
+    back: "to be busy"
+  - front: "estar feliz"
+    back: "to be happy"
+  - front: "estar nervioso"
+    back: "to be nervous"
+  - front: "estar en Madrid"
+    back: "to be in Madrid"
+  - front: "estar abierto"
+    back: "to be open"
+  - front: "estar cerrado"
+    back: "to be closed"
+
+sentences:
+  # SER = identity, characteristics, profession, origin
+
+  - es: "Mi abuelo era médico."
+    en: "My grandfather was a doctor."
+
+  - es: "Cuando era niño, era muy tímido."
+    en: "When I was a child, I was very shy."
+
+  - es: "La reunión fue muy interesante."
+    en: "The meeting was very interesting."
+
+  - es: "La conferencia fue en Barcelona."
+    en: "The conference was in Barcelona."
+
+  - es: "Mi cofundadora es de Valencia."
+    en: "My co-founder is from Valencia."
+
+  - es: "El proyecto ha sido un éxito."
+    en: "The project has been a success."
+
+  - es: "Las instrucciones eran difíciles de entender."
+    en: "The instructions were difficult to understand."
+
+  - es: "La fiesta fue increíble."
+    en: "The party was incredible."
+
+  # ESTAR = state, condition, location
+
+  - es: "Estoy muy cansado después del viaje."
+    en: "I am very tired after the trip."
+
+  - es: "Ayer estuve en Madrid todo el día."
+    en: "Yesterday I was in Madrid all day."
+
+  - es: "Cuando llegaste, estaba hablando con mi jefe."
+    en: "When you arrived, I was talking with my boss."
+
+  - es: "Esta semana hemos estado muy ocupados."
+    en: "We have been very busy this week."
+
+  - es: "Los inversores estaban nerviosos antes de la presentación."
+    en: "The investors were nervous before the presentation."
+
+  - es: "La oficina está cerca de la estación."
+    en: "The office is near the station."
+
+  - es: "El restaurante estaba cerrado."
+    en: "The restaurant was closed."
+
+  - es: "Hoy estoy mucho más tranquilo."
+    en: "Today I am much calmer."
+
+  # Contrastes clásicos
+
+  - es: "El hotel era antiguo, pero estaba limpio."
+    en: "The hotel was old, but it was clean."
+
+  - es: "La película fue larga, pero yo estaba entretenido."
+    en: "The movie was long, but I was entertained."
+
+  - es: "Mi profesor era muy estricto, pero siempre estaba dispuesto a ayudar."
+    en: "My teacher was very strict, but he was always willing to help."
+
+  - es: "La reunión fue corta porque todos estaban preparados."
+    en: "The meeting was short because everyone was prepared."
+
+  - es: "Cuando vivía en Holanda, el tiempo era malo y siempre estaba nublado."
+    en: "When I lived in the Netherlands, the weather was bad and it was always cloudy."
+
+  - es: "La empresa fue fundada en 2020 y ahora está creciendo rápidamente."
+    en: "The company was founded in 2020 and is now growing rapidly."
+
+  - es: "Mi hermano es muy tranquilo, pero hoy está preocupado."
+    en: "My brother is very calm, but today he is worried."
+
+  - es: "Normalmente soy optimista, pero esta semana he estado estresado."
+    en: "I am normally optimistic, but this week I have been stressed."

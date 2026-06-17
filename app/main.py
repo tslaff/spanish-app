@@ -1,4 +1,5 @@
 import os
+import random
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, Form, Request
@@ -31,12 +32,16 @@ def _redirect_if_anon(request: Request):
     return None
 
 
+MASTERY_COUNT = 3
+
+
 def _due(items: list[dict], pm: dict, direction: str) -> list[dict]:
-    return [
-        it
-        for it in items
-        if srs.is_due(pm.get(modes.progress_id(it["id"], direction)))
-    ]
+    result = []
+    for it in items:
+        p = pm.get(modes.progress_id(it["id"], direction))
+        if srs.is_due(p) and (p["correct_count"] if p else 0) < MASTERY_COUNT:
+            result.append(it)
+    return result
 
 
 # ----- auth -----
@@ -110,6 +115,7 @@ def review(request: Request, deck_id: str):
         return RedirectResponse("/", status_code=303)
     direction = modes.get_direction(request)
     due = _due(deck["cards"], db.progress_map(), direction)
+    random.shuffle(due)
     cards = [modes.card_view(c, direction) for c in due]
     return templates.TemplateResponse(
         "review.html",
@@ -135,6 +141,7 @@ def review_next(request: Request, deck_id: str):
         return RedirectResponse("/", status_code=303)
     direction = modes.get_direction(request)
     due = _due(deck["cards"], db.progress_map(), direction)
+    random.shuffle(due)
     cards = [modes.card_view(c, direction) for c in due]
     return templates.TemplateResponse(
         "_review_inner.html",
@@ -191,6 +198,7 @@ def sentences(request: Request, deck_id: str):
         return RedirectResponse("/", status_code=303)
     direction = modes.get_direction(request)
     due = _due(deck["sentences"], db.progress_map(), direction)
+    random.shuffle(due)
     items = [modes.sentence_view(s, direction) for s in due]
     return templates.TemplateResponse(
         "sentences.html",
@@ -217,6 +225,7 @@ def sentences_next(request: Request, deck_id: str):
         return RedirectResponse("/", status_code=303)
     direction = modes.get_direction(request)
     due = _due(deck["sentences"], db.progress_map(), direction)
+    random.shuffle(due)
     items = [modes.sentence_view(s, direction) for s in due]
     return templates.TemplateResponse(
         "_sentence_inner.html",
