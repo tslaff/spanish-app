@@ -1,4 +1,15 @@
 <div class="counter muted">{{ remaining }} due</div>
+{% if mastered %}
+<div class="mastered-banner">
+  <div class="mastery-dots">
+    <span class="mdot mdot-1">★</span>
+    <span class="mdot mdot-2">★</span>
+    <span class="mdot mdot-3">★</span>
+  </div>
+  <div class="mastered-label">Mastered!</div>
+  <div class="mastered-sub muted">Leaving the queue.</div>
+</div>
+{% endif %}
 <div class="card">
   <div class="front">{{ item.prompt }}</div>
   <div class="result {{ 'ok' if correct else 'bad' }}">

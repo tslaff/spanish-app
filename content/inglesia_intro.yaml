@@ -1,0 +1,367 @@
+id: catholic_faith_first_months
+name: "Catholic Faith and the Bible: First Months"
+
+cards:
+  - front: "la fe"
+    back: "faith"
+
+  - front: "la Iglesia católica"
+    back: "the Catholic Church"
+
+  - front: "la parroquia"
+    back: "the parish"
+
+  - front: "el sacerdote"
+    back: "the priest"
+
+  - front: "la catequesis"
+    back: "catechesis / religious instruction"
+
+  - front: "el catecismo"
+    back: "the catechism"
+
+  - front: "la conversión"
+    back: "conversion"
+
+  - front: "el sacramento"
+    back: "the sacrament"
+
+  - front: "el Bautismo"
+    back: "Baptism"
+
+  - front: "la Confirmación"
+    back: "Confirmation"
+
+  - front: "la Primera Comunión"
+    back: "First Communion"
+
+  - front: "la Eucaristía"
+    back: "the Eucharist"
+
+  - front: "la misa"
+    back: "Mass"
+
+  - front: "la comunión"
+    back: "Communion"
+
+  - front: "el Evangelio"
+    back: "the Gospel"
+
+  - front: "el Evangelio según san Lucas"
+    back: "the Gospel according to Saint Luke"
+
+  - front: "la Biblia"
+    back: "the Bible"
+
+  - front: "las Sagradas Escrituras"
+    back: "the Holy Scriptures"
+
+  - front: "el Antiguo Testamento"
+    back: "the Old Testament"
+
+  - front: "el Nuevo Testamento"
+    back: "the New Testament"
+
+  - front: "el capítulo"
+    back: "the chapter"
+
+  - front: "el versículo"
+    back: "the verse"
+
+  - front: "la parábola"
+    back: "the parable"
+
+  - front: "el milagro"
+    back: "the miracle"
+
+  - front: "el discípulo"
+    back: "the disciple"
+
+  - front: "el apóstol"
+    back: "the apostle"
+
+  - front: "el profeta"
+    back: "the prophet"
+
+  - front: "la oración"
+    back: "prayer"
+
+  - front: "rezar"
+    back: "to pray"
+
+  - front: "orar"
+    back: "to pray"
+
+  - front: "Dios"
+    back: "God"
+
+  - front: "Jesucristo"
+    back: "Jesus Christ"
+
+  - front: "el Hijo de Dios"
+    back: "the Son of God"
+
+  - front: "el Espíritu Santo"
+    back: "the Holy Spirit"
+
+  - front: "la Santísima Trinidad"
+    back: "the Holy Trinity"
+
+  - front: "la creación"
+    back: "creation"
+
+  - front: "el pecado"
+    back: "sin"
+
+  - front: "el pecado original"
+    back: "original sin"
+
+  - front: "el perdón"
+    back: "forgiveness"
+
+  - front: "la gracia"
+    back: "grace"
+
+  - front: "la salvación"
+    back: "salvation"
+
+  - front: "la redención"
+    back: "redemption"
+
+  - front: "la resurrección"
+    back: "the Resurrection"
+
+  - front: "la crucifixión"
+    back: "the Crucifixion"
+
+  - front: "la vida eterna"
+    back: "eternal life"
+
+  - front: "el Reino de Dios"
+    back: "the Kingdom of God"
+
+  - front: "la misericordia"
+    back: "mercy"
+
+  - front: "el amor al prójimo"
+    back: "love of one's neighbor"
+
+  - front: "el mandamiento"
+    back: "the commandment"
+
+  - front: "los Diez Mandamientos"
+    back: "the Ten Commandments"
+
+  - front: "las Bienaventuranzas"
+    back: "the Beatitudes"
+
+  - front: "el credo"
+    back: "the Creed"
+
+  - front: "creer en"
+    back: "to believe in"
+
+  - front: "seguir a Jesús"
+    back: "to follow Jesus"
+
+  - front: "arrepentirse"
+    back: "to repent"
+
+  - front: "perdonar"
+    back: "to forgive"
+
+  - front: "resucitar"
+    back: "to rise from the dead"
+
+  - front: "predicar"
+    back: "to preach"
+
+  - front: "enseñar"
+    back: "to teach"
+
+  - front: "cumplir la voluntad de Dios"
+    back: "to fulfill the will of God"
+
+sentences:
+  - es: "La Biblia está dividida en el Antiguo Testamento y el Nuevo Testamento."
+    en: "The Bible is divided into the Old Testament and the New Testament."
+
+  - es: "El Antiguo Testamento cuenta la historia del pueblo de Israel."
+    en: "The Old Testament tells the history of the people of Israel."
+
+  - es: "El Nuevo Testamento comienza con los cuatro Evangelios."
+    en: "The New Testament begins with the four Gospels."
+
+  - es: "Los Evangelios cuentan la vida, las enseñanzas, la muerte y la resurrección de Jesús."
+    en: "The Gospels tell the story of the life, teachings, death, and Resurrection of Jesus."
+
+  - es: "El Evangelio según san Lucas presta especial atención a la misericordia de Dios."
+    en: "The Gospel according to Saint Luke gives special attention to the mercy of God."
+
+  - es: "San Lucas presenta a Jesús como el Salvador de todas las personas."
+    en: "Saint Luke presents Jesus as the Savior of all people."
+
+  - es: "El ángel Gabriel anunció a María que sería la madre de Jesús."
+    en: "The angel Gabriel announced to Mary that she would be the mother of Jesus."
+
+  - es: "María respondió con fe y aceptó la voluntad de Dios."
+    en: "Mary responded with faith and accepted the will of God."
+
+  - es: "Jesús nació en Belén y fue acostado en un pesebre."
+    en: "Jesus was born in Bethlehem and was laid in a manger."
+
+  - es: "Los pastores fueron a Belén para ver al niño Jesús."
+    en: "The shepherds went to Bethlehem to see the child Jesus."
+
+  - es: "Jesús fue bautizado por Juan el Bautista en el río Jordán."
+    en: "Jesus was baptized by John the Baptist in the River Jordan."
+
+  - es: "Después de su Bautismo, Jesús comenzó su vida pública."
+    en: "After his Baptism, Jesus began his public ministry."
+
+  - es: "Jesús anunció la llegada del Reino de Dios."
+    en: "Jesus announced the coming of the Kingdom of God."
+
+  - es: "Jesús llamó a sus discípulos para que lo siguieran."
+    en: "Jesus called his disciples to follow him."
+
+  - es: "Los apóstoles acompañaron a Jesús y aprendieron de sus enseñanzas."
+    en: "The apostles accompanied Jesus and learned from his teachings."
+
+  - es: "Jesús enseñaba muchas veces por medio de parábolas."
+    en: "Jesus often taught through parables."
+
+  - es: "Una parábola es una historia breve que comunica una enseñanza espiritual."
+    en: "A parable is a short story that communicates a spiritual teaching."
+
+  - es: "La parábola del buen samaritano enseña a amar al prójimo."
+    en: "The parable of the Good Samaritan teaches us to love our neighbor."
+
+  - es: "La parábola del hijo pródigo muestra la misericordia y el perdón de Dios."
+    en: "The parable of the Prodigal Son shows the mercy and forgiveness of God."
+
+  - es: "Jesús enseñó que debemos perdonar a los demás."
+    en: "Jesus taught that we must forgive others."
+
+  - es: "Jesús dijo que debemos amar a Dios y amar al prójimo."
+    en: "Jesus said that we must love God and love our neighbor."
+
+  - es: "Las Bienaventuranzas describen la vida de quienes siguen a Jesús."
+    en: "The Beatitudes describe the life of those who follow Jesus."
+
+  - es: "Jesús mostró compasión por los pobres, los enfermos y los pecadores."
+    en: "Jesus showed compassion for the poor, the sick, and sinners."
+
+  - es: "Los milagros de Jesús revelan su poder y su compasión."
+    en: "The miracles of Jesus reveal his power and compassion."
+
+  - es: "Jesús curó a los enfermos y dio esperanza a quienes sufrían."
+    en: "Jesus healed the sick and gave hope to those who were suffering."
+
+  - es: "Jesús calmó la tormenta mientras estaba con sus discípulos."
+    en: "Jesus calmed the storm while he was with his disciples."
+
+  - es: "La fe no elimina todas las dificultades, pero ayuda a confiar en Dios."
+    en: "Faith does not remove every difficulty, but it helps us trust in God."
+
+  - es: "El pecado separa a la persona de Dios y de los demás."
+    en: "Sin separates a person from God and from others."
+
+  - es: "El arrepentimiento significa reconocer el pecado y volver a Dios."
+    en: "Repentance means recognizing sin and returning to God."
+
+  - es: "Dios ofrece perdón a quienes se arrepienten sinceramente."
+    en: "God offers forgiveness to those who sincerely repent."
+
+  - es: "La gracia es un don gratuito de Dios."
+    en: "Grace is a free gift from God."
+
+  - es: "La salvación es la liberación del pecado y la unión con Dios."
+    en: "Salvation is liberation from sin and union with God."
+
+  - es: "Los cristianos creen que Jesús es verdadero Dios y verdadero hombre."
+    en: "Christians believe that Jesus is true God and true man."
+
+  - es: "Jesús aceptó libremente su muerte en la cruz."
+    en: "Jesus freely accepted his death on the cross."
+
+  - es: "La crucifixión de Jesús ocurrió en Jerusalén."
+    en: "The Crucifixion of Jesus took place in Jerusalem."
+
+  - es: "Los cristianos creen que Jesús murió por la salvación de la humanidad."
+    en: "Christians believe that Jesus died for the salvation of humanity."
+
+  - es: "Al tercer día, Jesús resucitó de entre los muertos."
+    en: "On the third day, Jesus rose from the dead."
+
+  - es: "La resurrección es el centro de la fe cristiana."
+    en: "The Resurrection is at the center of the Christian faith."
+
+  - es: "Después de resucitar, Jesús se apareció a sus discípulos."
+    en: "After rising from the dead, Jesus appeared to his disciples."
+
+  - es: "Jesús envió a los apóstoles a predicar el Evangelio."
+    en: "Jesus sent the apostles to preach the Gospel."
+
+  - es: "El Espíritu Santo descendió sobre los discípulos en Pentecostés."
+    en: "The Holy Spirit descended upon the disciples at Pentecost."
+
+  - es: "La Iglesia nació para continuar la misión de Cristo en el mundo."
+    en: "The Church was born to continue the mission of Christ in the world."
+
+  - es: "El Bautismo marca el comienzo de la vida cristiana."
+    en: "Baptism marks the beginning of Christian life."
+
+  - es: "En el Bautismo, la persona recibe el perdón de los pecados."
+    en: "In Baptism, the person receives forgiveness of sins."
+
+  - es: "La Confirmación fortalece al cristiano con el don del Espíritu Santo."
+    en: "Confirmation strengthens the Christian with the gift of the Holy Spirit."
+
+  - es: "La Eucaristía recuerda y hace presente el sacrificio de Cristo."
+    en: "The Eucharist remembers and makes present the sacrifice of Christ."
+
+  - es: "Los católicos creen que Cristo está realmente presente en la Eucaristía."
+    en: "Catholics believe that Christ is truly present in the Eucharist."
+
+  - es: "Durante la misa, se proclaman lecturas de la Biblia."
+    en: "During Mass, readings from the Bible are proclaimed."
+
+  - es: "El Evangelio ocupa un lugar central en la Liturgia de la Palabra."
+    en: "The Gospel has a central place in the Liturgy of the Word."
+
+  - es: "El Credo resume las principales creencias de la fe cristiana."
+    en: "The Creed summarizes the principal beliefs of the Christian faith."
+
+  - es: "Los cristianos creen en un solo Dios en tres Personas."
+    en: "Christians believe in one God in three Persons."
+
+  - es: "La Santísima Trinidad es el Padre, el Hijo y el Espíritu Santo."
+    en: "The Holy Trinity is the Father, the Son, and the Holy Spirit."
+
+  - es: "La oración es una forma de hablar con Dios y escuchar su voluntad."
+    en: "Prayer is a way of speaking with God and listening for his will."
+
+  - es: "Jesús enseñó a sus discípulos a rezar el Padrenuestro."
+    en: "Jesus taught his disciples to pray the Our Father."
+
+  - es: "En la oración, una persona puede dar gracias, pedir ayuda y pedir perdón."
+    en: "In prayer, a person can give thanks, ask for help, and ask for forgiveness."
+
+  - es: "La lectura de la Biblia puede ayudar a una persona a conocer mejor a Dios."
+    en: "Reading the Bible can help a person know God better."
+
+  - es: "Para comprender un pasaje, es útil conocer su contexto."
+    en: "To understand a passage, it is useful to know its context."
+
+  - es: "No todos los libros de la Biblia tienen el mismo estilo literario."
+    en: "Not all the books of the Bible have the same literary style."
+
+  - es: "La Biblia contiene historia, poesía, profecía, cartas y enseñanzas."
+    en: "The Bible contains history, poetry, prophecy, letters, and teachings."
+
+  - es: "Un versículo debe interpretarse dentro del capítulo y del libro completo."
+    en: "A verse should be interpreted within the chapter and the complete book."
+
+  - es: "La Iglesia interpreta la Biblia a la luz de la Tradición y de la fe apostólica."
+    en: "The Church interprets the Bible in the light of Tradition and apostolic faith."

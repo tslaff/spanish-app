@@ -1,0 +1,148 @@
+id: connectors_prepositions
+name: "Connectors, Conjunctions and Prepositions"
+
+cards:
+  - front: "y"
+    back: "and"
+
+  - front: "o"
+    back: "or"
+
+  - front: "pero"
+    back: "but"
+
+  - front: "sino"
+    back: "but rather"
+
+  - front: "porque"
+    back: "because"
+
+  - front: "como"
+    back: "since / because"
+
+  - front: "aunque"
+    back: "although"
+
+  - front: "si"
+    back: "if"
+
+  - front: "cuando"
+    back: "when"
+
+  - front: "mientras"
+    back: "while"
+
+  - front: "hasta"
+    back: "until"
+
+  - front: "desde"
+    back: "since / from"
+
+  - front: "para"
+    back: "for / in order to"
+
+  - front: "por"
+    back: "by / because of / through"
+
+  - front: "sobre"
+    back: "about / over"
+
+  - front: "entre"
+    back: "between"
+
+  - front: "según"
+    back: "according to"
+
+  - front: "además"
+    back: "furthermore"
+
+  - front: "sin embargo"
+    back: "however"
+
+  - front: "por eso"
+    back: "therefore / that's why"
+
+  - front: "entonces"
+    back: "then / so"
+
+  - front: "todavía"
+    back: "still"
+
+  - front: "ya"
+    back: "already"
+
+  - front: "aún"
+    back: "yet / still"
+
+sentences:
+  - es: "Trabajo mucho y estudio español."
+    en: "I work a lot and study Spanish."
+
+  - es: "¿Quieres café o té?"
+    en: "Do you want coffee or tea?"
+
+  - es: "Quería salir, pero estaba cansado."
+    en: "I wanted to go out, but I was tired."
+
+  - es: "No compró un coche, sino una moto."
+    en: "He didn't buy a car, but rather a motorcycle."
+
+  - es: "No fui porque estaba enfermo."
+    en: "I didn't go because I was sick."
+
+  - es: "Como estaba cansado, me fui a casa."
+    en: "Since I was tired, I went home."
+
+  - es: "Aunque llovía, salimos a caminar."
+    en: "Although it was raining, we went for a walk."
+
+  - es: "Si tienes tiempo, llámame."
+    en: "If you have time, call me."
+
+  - es: "Cuando llegué, ya habían empezado."
+    en: "When I arrived, they had already started."
+
+  - es: "Estudiaba mientras escuchaba música."
+    en: "I was studying while listening to music."
+
+  - es: "Esperé hasta las diez."
+    en: "I waited until ten."
+
+  - es: "Vivo en Madrid desde 2024."
+    en: "I have lived in Madrid since 2024."
+
+  - es: "Estudio español para hablar con mis vecinos."
+    en: "I study Spanish in order to speak with my neighbors."
+
+  - es: "Viajé por España durante el verano."
+    en: "I traveled through Spain during the summer."
+
+  - es: "Leí un libro sobre historia."
+    en: "I read a book about history."
+
+  - es: "La estación está entre el hotel y el museo."
+    en: "The station is between the hotel and the museum."
+
+  - es: "Según el informe, las ventas aumentaron."
+    en: "According to the report, sales increased."
+
+  - es: "Además, necesitamos contratar más personas."
+    en: "Furthermore, we need to hire more people."
+
+  - es: "Sin embargo, el proyecto sigue adelante."
+    en: "However, the project is moving forward."
+
+  - es: "Estaba lloviendo, por eso cogimos un taxi."
+    en: "It was raining, therefore we took a taxi."
+
+  - es: "Terminamos la reunión y entonces nos fuimos."
+    en: "We finished the meeting and then we left."
+
+  - es: "Todavía no he terminado el informe."
+    en: "I still haven't finished the report."
+
+  - es: "Ya he hecho la reserva."
+    en: "I have already made the reservation."
+
+  - es: "Aún no sabemos la respuesta."
+    en: "We still don't know the answer."

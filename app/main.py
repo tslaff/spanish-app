@@ -169,9 +169,12 @@ def review_check(
     card = modes.card_view(raw, direction)
     pid = modes.progress_id(card_id, direction)
 
+    prog = db.get_progress(pid)
+    correct_count_before = prog["correct_count"] if prog else 0
     is_correct = False if reveal == "1" else grading.check_answer(attempt, card["answer"])
-    box, next_due = srs.next_state(db.get_progress(pid), is_correct)
+    box, next_due = srs.next_state(prog, is_correct)
     db.record_review(pid, box, next_due, is_correct)
+    mastered = is_correct and correct_count_before + 1 >= MASTERY_COUNT
 
     due = _due(deck["cards"], db.progress_map(), direction)
     return templates.TemplateResponse(
@@ -183,6 +186,7 @@ def review_check(
             "correct": is_correct,
             "attempt": attempt,
             "remaining": len(due),
+            "mastered": mastered,
         },
     )
 
@@ -259,9 +263,12 @@ def sentences_check(
     item = modes.sentence_view(raw, direction)
     pid = modes.progress_id(item_id, direction)
 
+    prog = db.get_progress(pid)
+    correct_count_before = prog["correct_count"] if prog else 0
     is_correct = False if reveal == "1" else grading.check_answer(attempt, item["answer"])
-    box, next_due = srs.next_state(db.get_progress(pid), is_correct)
+    box, next_due = srs.next_state(prog, is_correct)
     db.record_review(pid, box, next_due, is_correct)
+    mastered = is_correct and correct_count_before + 1 >= MASTERY_COUNT
 
     due = _due(deck["sentences"], db.progress_map(), direction)
     return templates.TemplateResponse(
@@ -275,6 +282,7 @@ def sentences_check(
             "remaining": len(due),
             "claude_enabled": settings.claude_enabled,
             "direction": direction,
+            "mastered": mastered,
         },
     )
 
