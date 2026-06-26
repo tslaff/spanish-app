@@ -1,0 +1,26 @@
+{% if card %}
+<div class="counter muted">{{ remaining }} to review</div>
+<div class="card kw-card">
+  <div class="front">{{ card.front }}</div>
+</div>
+
+<div class="controls kw-controls">
+  <button class="success"
+          hx-post="/k/{{ deck.id }}/complete"
+          hx-vals='{"card_id": "{{ card.id }}"}'
+          hx-target="#kw-area" hx-swap="innerHTML">Completed</button>
+  <button class="primary"
+          hx-get="/k/{{ deck.id }}/back"
+          hx-vals='{"card_id": "{{ card.id }}"}'
+          hx-target="#kw-area" hx-swap="innerHTML">Check back</button>
+  <button class="ghost"
+          hx-get="/k/{{ deck.id }}/next"
+          hx-vals='{"exclude": "{{ card.id }}"}'
+          hx-target="#kw-area" hx-swap="innerHTML">Skip</button>
+</div>
+{% else %}
+<div class="done">
+  <p>All caught up here. Nothing left to review.</p>
+  <a class="primary" href="/">Back to decks</a>
+</div>
+{% endif %}

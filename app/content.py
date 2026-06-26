@@ -17,16 +17,19 @@ def _card_id(deck_id: str, kind: str, item: dict, key_field: str) -> str:
     return f"{deck_id}::{kind}::{raw}"
 
 
-def load_decks() -> list[dict]:
-    """Read every *.yaml / *.yml file in the content directory into a deck list.
+def load_decks(subdir: str = "spanish") -> list[dict]:
+    """Read every *.yaml / *.yml file in a content subdirectory into a deck list.
 
-    Reloaded on each request, so editing a file (and redeploying) updates content
-    with no database migration. Card identities are derived from their text, so
-    progress sticks to a card as long as its front text is unchanged.
+    Each domain keeps its lessons in its own subdirectory (content/spanish,
+    content/knowledge, …). Reloaded on each request, so editing a file (and
+    redeploying) updates content with no database migration. Card identities are
+    derived from their text, so progress sticks to a card as long as its front
+    text is unchanged.
     """
+    base = os.path.join(settings.content_dir, subdir)
     paths = sorted(
-        glob.glob(os.path.join(settings.content_dir, "*.yaml"))
-        + glob.glob(os.path.join(settings.content_dir, "*.yml"))
+        glob.glob(os.path.join(base, "*.yaml"))
+        + glob.glob(os.path.join(base, "*.yml"))
     )
     decks = []
     for path in paths:
@@ -69,8 +72,8 @@ def load_decks() -> list[dict]:
     return decks
 
 
-def get_deck(deck_id: str) -> dict | None:
-    for d in load_decks():
+def get_deck(deck_id: str, subdir: str = "spanish") -> dict | None:
+    for d in load_decks(subdir):
         if d["id"] == deck_id:
             return d
     return None

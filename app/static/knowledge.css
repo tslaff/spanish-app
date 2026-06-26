@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --bg: #0b1220;
+  --bg2: #0f1830;
+  --surface: #131d36;
+  --surface-2: #18254480;
+  --border: #24314f;
+  --border-bright: #3a4f80;
+  --ink: #e8edf7;
+  --ink-dim: #8a98b8;
+  --navy: #1e3a8a;
+  --navy-light: #3b5bbf;
+  --accent: #8b5cf6;
+  --accent-light: #a78bfa;
+  --green: #34d399;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.6;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(ellipse 70% 50% at 50% -10%, rgba(30, 58, 138, 0.35) 0%, transparent 65%);
+}
+
+/* ── Header ─────────────────────────────────────── */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 22px;
+  background: rgba(11, 18, 32, 0.9);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.brand {
+  font-weight: 800;
+  font-size: 19px;
+  text-decoration: none;
+  color: var(--ink);
+  letter-spacing: -0.3px;
+}
+.brand::before {
+  content: "";
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  margin-right: 9px;
+  border-radius: 2px;
+  background: var(--accent);
+  vertical-align: middle;
+}
+
+.header-right { display: flex; align-items: center; gap: 14px; }
+.domain-select {
+  appearance: none;
+  -webkit-appearance: none;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 7px 28px 7px 12px;
+  border-radius: 9px;
+  cursor: pointer;
+  outline: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'><path d='M2 4l4 4 4-4' stroke='%238a98b8' stroke-width='1.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  transition: border-color 0.2s;
+}
+.domain-select:hover, .domain-select:focus { border-color: var(--accent); }
+.domain-select option { background: var(--surface); color: var(--ink); }
+
+/* ── Layout ─────────────────────────────────────── */
+main { max-width: 620px; margin: 0 auto; padding: 28px 18px 80px; }
+
+h1 {
+  font-size: 23px;
+  font-weight: 800;
+  margin: 4px 0 22px;
+  letter-spacing: -0.4px;
+  color: var(--ink);
+}
+h2 { font-size: 16px; font-weight: 700; margin: 0 0 10px; color: var(--ink); }
+
+a { color: var(--accent-light); }
+.muted { color: var(--ink-dim); text-decoration: none; font-size: 14px; }
+.error { color: #f87171; font-weight: 600; }
+code {
+  background: rgba(139, 92, 246, 0.14);
+  border: 1px solid var(--border);
+  padding: 2px 7px;
+  border-radius: 6px;
+  font-size: 13px;
+  color: var(--accent-light);
+}
+
+.topbar { margin-bottom: 18px; }
+.topbar .muted { display: inline-block; margin-bottom: 8px; }
+
+/* ── Dashboard ───────────────────────────────────── */
+.deck-link { text-decoration: none; display: block; }
+.deck {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  margin-bottom: 14px;
+  transition: border-color 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+.deck-link:hover .deck {
+  border-color: var(--border-bright);
+  border-left-color: var(--accent-light);
+  transform: translateX(3px);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+}
+
+.deck-meta { display: flex; gap: 14px; align-items: baseline; }
+.count { font-size: 13px; color: var(--ink-dim); font-weight: 600; }
+.count.due { color: var(--accent-light); font-weight: 700; }
+
+/* ── Flip card ──────────────────────────────────── */
+.counter { text-align: center; margin-bottom: 14px; font-size: 13px; color: var(--ink-dim); letter-spacing: 0.4px; }
+
+.card.kw-card {
+  background: linear-gradient(160deg, var(--surface) 0%, var(--bg2) 100%);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 48px 28px;
+  text-align: center;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+.kw-card .front {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  color: var(--ink);
+}
+.kw-card .back {
+  margin-top: 24px;
+  padding-top: 22px;
+  border-top: 1px solid var(--border);
+}
+.kw-card .answer {
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--accent-light);
+  line-height: 1.5;
+}
+
+/* ── Controls / Buttons ─────────────────────────── */
+.controls.kw-controls { margin-top: 22px; display: flex; flex-direction: column; gap: 11px; }
+
+button {
+  font-size: 15px;
+  font-weight: 700;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 11px;
+  cursor: pointer;
+  font-family: inherit;
+  letter-spacing: 0.2px;
+  transition: transform 0.12s, filter 0.2s, background 0.2s, border-color 0.2s;
+}
+button:active { transform: scale(0.98); }
+
+button.success {
+  width: 100%;
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(139, 92, 246, 0.35);
+}
+button.success:hover { filter: brightness(1.08); }
+
+button.primary {
+  width: 100%;
+  background: var(--navy);
+  color: #fff;
+  border: 1px solid var(--navy-light);
+}
+button.primary:hover { background: var(--navy-light); }
+
+button.ghost {
+  width: 100%;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--ink-dim);
+}
+button.ghost:hover { border-color: var(--border-bright); color: var(--ink); }
+
+/* ── Done state ─────────────────────────────────── */
+.done { text-align: center; padding: 48px 0; color: var(--ink-dim); }
+.done .primary {
+  display: inline-block;
+  width: auto;
+  padding: 13px 26px;
+  text-decoration: none;
+  margin-top: 14px;
+  border-radius: 11px;
+}
+
+/* ── HTMX ────────────────────────────────────────── */
+.htmx-indicator { display: none; }
+.htmx-request .htmx-indicator { display: inline; }

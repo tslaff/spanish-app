@@ -1,3 +1,4 @@
+{% set dom = domains.current(request) %}
 <!doctype html>
 <html lang="en">
 <head>
@@ -5,16 +6,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="theme-color" content="#7c3aed">
+  <meta name="theme-color" content="{{ dom.theme_color }}">
   <link rel="manifest" href="/static/manifest.json">
-  <link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="/static/{{ dom.stylesheet }}">
   <script src="https://unpkg.com/htmx.org@1.9.12"></script>
-  <title>{% block title %}Español{% endblock %}</title>
+  <title>{% block title %}{{ dom.brand }}{% endblock %}</title>
 </head>
 <body>
   <header>
-    <a href="/" class="brand">Español</a>
-    <a href="/logout" class="muted">Log out</a>
+    <a href="/" class="brand">{{ dom.brand }}</a>
+    <div class="header-right">
+      <select class="domain-select" aria-label="Study domain" onchange="location.href=this.value">
+        {% for key, d in domains.DOMAINS.items() %}
+        <option value="/domain/{{ key }}" {% if dom.id == key %}selected{% endif %}>{{ d.name }}</option>
+        {% endfor %}
+      </select>
+      <a href="/logout" class="muted">Log out</a>
+    </div>
   </header>
   <main>
     {% block content %}{% endblock %}

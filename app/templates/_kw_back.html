@@ -1,0 +1,18 @@
+<div class="counter muted">{{ remaining }} to review</div>
+<div class="card kw-card">
+  <div class="front">{{ card.front }}</div>
+  <div class="back">
+    <div class="answer">{{ card.back }}</div>
+  </div>
+</div>
+
+<div class="controls kw-controls">
+  <button class="success"
+          hx-post="/k/{{ deck.id }}/complete"
+          hx-vals='{"card_id": "{{ card.id }}"}'
+          hx-target="#kw-area" hx-swap="innerHTML">Completed</button>
+  <button class="ghost"
+          hx-get="/k/{{ deck.id }}/next"
+          hx-vals='{"exclude": "{{ card.id }}"}'
+          hx-target="#kw-area" hx-swap="innerHTML">Skip</button>
+</div>

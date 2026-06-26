@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Knowledge Work</h1>
+{% if not decks %}
+  <p class="muted">No decks found. Add a YAML file to the <code>content/knowledge/</code> folder.</p>
+{% endif %}
+{% for d in decks %}
+<a class="deck-link" href="/k/{{ d.id }}">
+  <div class="deck">
+    <h2>{{ d.name }}</h2>
+    <div class="deck-meta">
+      <span class="count {% if d.due %}due{% endif %}">{{ d.due }} to review</span>
+      <span class="count muted">{{ d.total }} cards</span>
+    </div>
+  </div>
+</a>
+{% endfor %}
+{% endblock %}

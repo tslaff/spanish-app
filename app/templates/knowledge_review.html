@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="topbar">
+  <a href="/" class="muted">&larr; Decks</a>
+  <h1>{{ deck.name }}</h1>
+</div>
+<div id="kw-area">
+  {% include "_kw_front.html" %}
+</div>
+{% endblock %}

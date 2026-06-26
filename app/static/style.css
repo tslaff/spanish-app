@@ -61,6 +61,28 @@ header {
   letter-spacing: -0.3px;
 }
 
+.header-right { display: flex; align-items: center; gap: 14px; }
+.domain-select {
+  appearance: none;
+  -webkit-appearance: none;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 7px 28px 7px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  outline: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'><path d='M2 4l4 4 4-4' stroke='%239490c4' stroke-width='1.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.domain-select:hover, .domain-select:focus { border-color: var(--border-bright); box-shadow: var(--glow-purple); }
+.domain-select option { background: var(--surface-solid); color: var(--ink); }
+
 /* ── Layout ─────────────────────────────────────── */
 main { max-width: 640px; margin: 0 auto; padding: 28px 18px 80px; }
 

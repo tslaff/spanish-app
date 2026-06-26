@@ -1,6 +1,7 @@
 import os
 import random
 from contextlib import asynccontextmanager
+from datetime import date, timedelta
 
 from fastapi import FastAPI, Form, Request
 from fastapi.responses import HTMLResponse, RedirectResponse
@@ -8,7 +9,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from starlette.middleware.sessions import SessionMiddleware
 
-from . import auth, content, db, grading, modes, srs, translate
+from . import auth, content, db, domains, grading, modes, srs, translate
 from .config import settings
 
 BASE_DIR = os.path.dirname(__file__)
@@ -24,6 +25,9 @@ app = FastAPI(lifespan=lifespan)
 app.add_middleware(SessionMiddleware, secret_key=settings.secret_key)
 app.mount("/static", StaticFiles(directory=os.path.join(BASE_DIR, "static")), name="static")
 templates = Jinja2Templates(directory=os.path.join(BASE_DIR, "templates"))
+# Make the domain registry available to every template (base.html reads it to
+# pick the stylesheet, brand and the domain switcher).
+templates.env.globals["domains"] = domains
 
 
 def _redirect_if_anon(request: Request):
@@ -35,6 +39,10 @@ def _redirect_if_anon(request: Request):
 MASTERY_COUNT = 3
 
 
+def _subdir(request: Request) -> str:
+    return domains.current(request)["subdir"]
+
+
 def _due(items: list[dict], pm: dict, direction: str) -> list[dict]:
     result = []
     for it in items:
@@ -42,6 +50,25 @@ def _due(items: list[dict], pm: dict, direction: str) -> list[dict]:
         if srs.is_due(p) and (p["correct_count"] if p else 0) < MASTERY_COUNT:
             result.append(it)
     return result
+
+
+def _kw_due_cards(deck: dict, pm: dict) -> list[dict]:
+    """Flip cards still to review: not yet completed. No direction, bare id."""
+    result = []
+    for c in deck["cards"]:
+        p = pm.get(c["id"])
+        if (p["correct_count"] if p else 0) < MASTERY_COUNT:
+            result.append(c)
+    return result
+
+
+def _kw_pick(deck: dict, exclude: str | None = None) -> tuple[dict | None, int]:
+    """Pick the next due flip card (random, avoiding an immediate repeat)."""
+    due = _kw_due_cards(deck, db.progress_map())
+    pool = [c for c in due if c["id"] != exclude] if exclude else due
+    if not pool:
+        pool = due  # only the excluded card is left — show it again rather than nothing
+    return (random.choice(pool) if pool else None), len(due)
 
 
 # ----- auth -----
@@ -78,6 +105,16 @@ def set_direction(request: Request, value: str, next: str = "/"):
     return RedirectResponse(target, status_code=303)
 
 
+@app.get("/domain/{value}")
+def set_domain(request: Request, value: str):
+    """Switch study domain (Spanish vs Knowledge Work), then go to the dashboard."""
+    if (r := _redirect_if_anon(request)) is not None:
+        return r
+    if value in domains.DOMAINS:
+        request.session["domain"] = value
+    return RedirectResponse("/", status_code=303)
+
+
 # ----- dashboard -----
 
 @app.get("/", response_class=HTMLResponse)
@@ -85,9 +122,26 @@ def index(request: Request):
     if (r := _redirect_if_anon(request)) is not None:
         return r
     pm = db.progress_map()
+    dom = domains.current(request)
+
+    if dom["kind"] == "flip":
+        decks = []
+        for d in content.load_decks(dom["subdir"]):
+            decks.append(
+                {
+                    "id": d["id"],
+                    "name": d["name"],
+                    "total": len(d["cards"]),
+                    "due": len(_kw_due_cards(d, pm)),
+                }
+            )
+        return templates.TemplateResponse(
+            "knowledge_index.html", {"request": request, "decks": decks}
+        )
+
     direction = modes.get_direction(request)
     decks = []
-    for d in content.load_decks():
+    for d in content.load_decks(dom["subdir"]):
         decks.append(
             {
                 "id": d["id"],
@@ -110,7 +164,7 @@ def index(request: Request):
 def review(request: Request, deck_id: str):
     if (r := _redirect_if_anon(request)) is not None:
         return r
-    deck = content.get_deck(deck_id)
+    deck = content.get_deck(deck_id, _subdir(request))
     if not deck:
         return RedirectResponse("/", status_code=303)
     direction = modes.get_direction(request)
@@ -136,7 +190,7 @@ def review_next(request: Request, deck_id: str):
     """Render the next due card (used by the 'Next' button after a check)."""
     if (r := _redirect_if_anon(request)) is not None:
         return r
-    deck = content.get_deck(deck_id)
+    deck = content.get_deck(deck_id, _subdir(request))
     if not deck:
         return RedirectResponse("/", status_code=303)
     direction = modes.get_direction(request)
@@ -160,7 +214,7 @@ def review_check(
     """Check a typed translation, grade the card, and show the result."""
     if (r := _redirect_if_anon(request)) is not None:
         return r
-    deck = content.get_deck(deck_id)
+    deck = content.get_deck(deck_id, _subdir(request))
     raw = next((c for c in deck["cards"] if c["id"] == card_id), None) if deck else None
     if not raw:
         return RedirectResponse("/", status_code=303)
@@ -197,7 +251,7 @@ def review_check(
 def sentences(request: Request, deck_id: str):
     if (r := _redirect_if_anon(request)) is not None:
         return r
-    deck = content.get_deck(deck_id)
+    deck = content.get_deck(deck_id, _subdir(request))
     if not deck:
         return RedirectResponse("/", status_code=303)
     direction = modes.get_direction(request)
@@ -224,7 +278,7 @@ def sentences_next(request: Request, deck_id: str):
     """Render the next due sentence (used by the 'Next' button after a check)."""
     if (r := _redirect_if_anon(request)) is not None:
         return r
-    deck = content.get_deck(deck_id)
+    deck = content.get_deck(deck_id, _subdir(request))
     if not deck:
         return RedirectResponse("/", status_code=303)
     direction = modes.get_direction(request)
@@ -254,7 +308,7 @@ def sentences_check(
     """Check a typed sentence translation, grade it, and show the result."""
     if (r := _redirect_if_anon(request)) is not None:
         return r
-    deck = content.get_deck(deck_id)
+    deck = content.get_deck(deck_id, _subdir(request))
     raw = next((s for s in deck["sentences"] if s["id"] == item_id), None) if deck else None
     if not raw:
         return RedirectResponse("/", status_code=303)
@@ -292,7 +346,7 @@ async def sentences_feedback(request: Request, deck_id: str, item_id: str = Form
     """Optional richer feedback from Claude on a sentence translation."""
     if (r := _redirect_if_anon(request)) is not None:
         return r
-    deck = content.get_deck(deck_id)
+    deck = content.get_deck(deck_id, _subdir(request))
     item = next((s for s in deck["sentences"] if s["id"] == item_id), None) if deck else None
     if not item:
         return HTMLResponse("")
@@ -300,4 +354,68 @@ async def sentences_feedback(request: Request, deck_id: str, item_id: str = Form
     feedback = await translate.grade_translation(item["es"], item["en"], attempt, direction)
     return templates.TemplateResponse(
         "_feedback.html", {"request": request, "feedback": feedback or ""}
+    )
+
+
+# ----- knowledge work (flip cards) -----
+
+@app.get("/k/{deck_id}", response_class=HTMLResponse)
+def kw_review(request: Request, deck_id: str):
+    if (r := _redirect_if_anon(request)) is not None:
+        return r
+    deck = content.get_deck(deck_id, "knowledge")
+    if not deck:
+        return RedirectResponse("/", status_code=303)
+    card, remaining = _kw_pick(deck)
+    return templates.TemplateResponse(
+        "knowledge_review.html",
+        {"request": request, "deck": deck, "card": card, "remaining": remaining},
+    )
+
+
+@app.get("/k/{deck_id}/next", response_class=HTMLResponse)
+def kw_next(request: Request, deck_id: str, exclude: str = ""):
+    """Next due card's front — used by Skip and after Completed."""
+    if (r := _redirect_if_anon(request)) is not None:
+        return r
+    deck = content.get_deck(deck_id, "knowledge")
+    if not deck:
+        return RedirectResponse("/", status_code=303)
+    card, remaining = _kw_pick(deck, exclude or None)
+    return templates.TemplateResponse(
+        "_kw_front.html",
+        {"request": request, "deck": deck, "card": card, "remaining": remaining},
+    )
+
+
+@app.get("/k/{deck_id}/back", response_class=HTMLResponse)
+def kw_back(request: Request, deck_id: str, card_id: str):
+    """Reveal the back of a card ('Check back'). The card stays in the queue."""
+    if (r := _redirect_if_anon(request)) is not None:
+        return r
+    deck = content.get_deck(deck_id, "knowledge")
+    card = next((c for c in deck["cards"] if c["id"] == card_id), None) if deck else None
+    if not card:
+        return RedirectResponse("/", status_code=303)
+    remaining = len(_kw_due_cards(deck, db.progress_map()))
+    return templates.TemplateResponse(
+        "_kw_back.html",
+        {"request": request, "deck": deck, "card": card, "remaining": remaining},
+    )
+
+
+@app.post("/k/{deck_id}/complete", response_class=HTMLResponse)
+def kw_complete(request: Request, deck_id: str, card_id: str = Form(...)):
+    """Mark a card completed (it leaves the queue) and show the next one."""
+    if (r := _redirect_if_anon(request)) is not None:
+        return r
+    deck = content.get_deck(deck_id, "knowledge")
+    if not deck:
+        return RedirectResponse("/", status_code=303)
+    next_due = (date.today() + timedelta(days=srs.INTERVALS[srs.MAX_BOX])).isoformat()
+    db.complete_card(card_id, MASTERY_COUNT, srs.MAX_BOX, next_due)
+    card, remaining = _kw_pick(deck, card_id)
+    return templates.TemplateResponse(
+        "_kw_front.html",
+        {"request": request, "deck": deck, "card": card, "remaining": remaining},
     )

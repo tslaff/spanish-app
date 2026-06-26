@@ -1,0 +1,18 @@
+id: negotiation
+name: "Negotiation Approaches"
+
+cards:
+  - front: "Set an objective measure"
+    back: "Getting to Yes"
+
+  - front: "Separate the people from the problem"
+    back: "Getting to Yes"
+
+  - front: "Focus on interests, not positions"
+    back: "Getting to Yes"
+
+  - front: "Invent options for mutual gain"
+    back: "Getting to Yes"
+
+  - front: "Know your BATNA (Best Alternative To a Negotiated Agreement)"
+    back: "Getting to Yes"

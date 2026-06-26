@@ -47,6 +47,30 @@ def get_progress(card_id: str):
     return row
 
 
+def complete_card(card_id: str, correct_count: int, box: int, next_due: str) -> None:
+    """Mark a flip card done in one action (Knowledge Work's 'Completed').
+
+    Sets correct_count straight to the mastery threshold so the card drops out
+    of the queue, instead of needing several correct passes like a graded card.
+    """
+    today = date.today().isoformat()
+    conn = get_conn()
+    conn.execute(
+        """
+        INSERT INTO progress (card_id, box, next_due, last_reviewed, correct_count, wrong_count)
+        VALUES (?, ?, ?, ?, ?, 0)
+        ON CONFLICT(card_id) DO UPDATE SET
+            box = excluded.box,
+            next_due = excluded.next_due,
+            last_reviewed = excluded.last_reviewed,
+            correct_count = excluded.correct_count
+        """,
+        (card_id, box, next_due, today, correct_count),
+    )
+    conn.commit()
+    conn.close()
+
+
 def record_review(card_id: str, box: int, next_due: str, correct: bool) -> None:
     conn = get_conn()
     existing = conn.execute(
