@@ -21,23 +21,26 @@ def load_decks(subdir: str = "spanish") -> list[dict]:
     """Read every *.yaml / *.yml file in a content subdirectory into a deck list.
 
     Each domain keeps its lessons in its own subdirectory (content/spanish,
-    content/knowledge, …). Reloaded on each request, so editing a file (and
-    redeploying) updates content with no database migration. Card identities are
-    derived from their text, so progress sticks to a card as long as its front
-    text is unchanged.
+    content/knowledge, …). Files may be nested in subdirectories; the
+    immediate subfolder name (relative to the domain directory) is used as
+    the deck's "category" for dashboard grouping.
     """
     base = os.path.join(settings.content_dir, subdir)
     paths = sorted(
-        glob.glob(os.path.join(base, "*.yaml"))
-        + glob.glob(os.path.join(base, "*.yml"))
+        glob.glob(os.path.join(base, "**/*.yaml"), recursive=True)
+        + glob.glob(os.path.join(base, "**/*.yml"), recursive=True)
     )
     decks = []
     for path in paths:
         with open(path, encoding="utf-8") as f:
             data = yaml.safe_load(f) or {}
 
-        base = os.path.splitext(os.path.basename(path))[0]
-        deck_id = data.get("id") or slugify(base)
+        rel = os.path.relpath(path, base)
+        parts = rel.split(os.sep)
+        category = parts[0] if len(parts) > 1 else None
+
+        stem = os.path.splitext(os.path.basename(path))[0]
+        deck_id = data.get("id") or slugify(stem)
 
         cards = []
         for c in data.get("cards", []) or []:
@@ -65,6 +68,7 @@ def load_decks(subdir: str = "spanish") -> list[dict]:
             {
                 "id": deck_id,
                 "name": data.get("name", deck_id),
+                "category": category,
                 "cards": cards,
                 "sentences": sentences,
             }

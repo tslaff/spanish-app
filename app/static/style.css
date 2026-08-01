@@ -140,6 +140,63 @@ code {
 }
 .mode-toggle a:not(.active):hover { color: var(--ink); }
 
+/* ── Category groups (sub-menus) ─────────────────── */
+.category-group {
+  margin-bottom: 20px;
+  border: none;
+}
+.category-heading {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: var(--purple-light);
+  cursor: pointer;
+  padding: 10px 0 8px;
+  user-select: none;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.category-heading::-webkit-details-marker {
+  display: none;
+}
+.category-heading::before {
+  content: "▾";
+  font-size: 12px;
+  color: var(--ink-dim);
+  transition: transform 0.2s;
+}
+details.category-group[open] > .category-heading::before {
+  transform: rotate(0deg);
+}
+details.category-group:not([open]) > .category-heading::before {
+  transform: rotate(-90deg);
+}
+
+/* ── Reset button ────────────────────────────────── */
+.reset-form {
+  margin-top: 10px;
+}
+.reset-btn {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: inherit;
+  background: rgba(255, 77, 109, 0.08);
+  color: var(--red);
+  transition: background 0.2s, border-color 0.2s;
+  letter-spacing: 0.2px;
+}
+.reset-btn:hover {
+  background: rgba(255, 77, 109, 0.2);
+  border-color: var(--red);
+}
+
 /* ── Dashboard ───────────────────────────────────── */
 .deck {
   background: var(--surface);

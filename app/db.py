@@ -71,6 +71,14 @@ def complete_card(card_id: str, correct_count: int, box: int, next_due: str) -> 
     conn.close()
 
 
+def reset_deck_progress(deck_id_prefix: str) -> None:
+    """Delete all progress rows whose card_id starts with the given prefix."""
+    conn = get_conn()
+    conn.execute("DELETE FROM progress WHERE card_id LIKE ?", (deck_id_prefix + "%",))
+    conn.commit()
+    conn.close()
+
+
 def record_review(card_id: str, box: int, next_due: str, correct: bool) -> None:
     conn = get_conn()
     existing = conn.execute(

@@ -2,24 +2,46 @@
 {% block content %}
 <h1>Your lessons</h1>
 {% include "_mode_toggle.html" %}
-{% if not decks %}
+{% if not categories %}
   <p class="muted">No lessons found. Add a YAML file to the <code>content/</code> folder.</p>
 {% endif %}
-{% for d in decks %}
-<div class="deck">
-  <h2>{{ d.name }}</h2>
-  <div class="deck-rows">
-    <a class="deck-row" href="/review/{{ d.id }}">
-      <span>Flashcards</span>
-      <span class="count {% if d.vocab_due %}due{% endif %}">{{ d.vocab_due }} due / {{ d.vocab_total }}</span>
-    </a>
-    {% if d.sent_total %}
-    <a class="deck-row" href="/sentences/{{ d.id }}">
-      <span>Translate sentences</span>
-      <span class="count {% if d.sent_due %}due{% endif %}">{{ d.sent_due }} due / {{ d.sent_total }}</span>
-    </a>
-    {% endif %}
-  </div>
-</div>
+{% for cat, cat_decks in categories | dictsort %}
+  {% if cat == "_other" %}
+    {% for d in cat_decks %}
+    <div class="deck">
+      <h2>{{ d.name }}</h2>
+      <div class="deck-rows">
+        <a class="deck-row" href="/review/{{ d.id }}">
+          <span>Flashcards</span>
+          <span class="count {% if d.vocab_due %}due{% endif %}">{{ d.vocab_due }} due / {{ d.vocab_total }}</span>
+        </a>
+        {% if d.sent_total %}
+        <a class="deck-row" href="/sentences/{{ d.id }}">
+          <span>Translate sentences</span>
+          <span class="count {% if d.sent_due %}due{% endif %}">{{ d.sent_due }} due / {{ d.sent_total }}</span>
+        </a>
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  {% else %}
+    <details class="category-group" open>
+      <summary class="category-heading">{{ cat | capitalize }}</summary>
+      {% for d in cat_decks %}
+      <div class="deck">
+        <h2>{{ d.name }}</h2>
+        <div class="deck-rows">
+          <a class="deck-row" href="/sentences/{{ d.id }}">
+            <span>Translate sentences</span>
+            <span class="count {% if d.sent_due %}due{% endif %}">{{ d.sent_due }} due / {{ d.sent_total }}</span>
+          </a>
+        </div>
+        <form method="post" action="/reset/{{ d.id }}" class="reset-form">
+          <button type="submit" class="reset-btn" onclick="return confirm('Reset progress for {{ d.name }}?')">Reset progress</button>
+        </form>
+      </div>
+      {% endfor %}
+    </details>
+  {% endif %}
 {% endfor %}
 {% endblock %}

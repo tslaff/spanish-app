@@ -141,21 +141,33 @@ def index(request: Request):
 
     direction = modes.get_direction(request)
     decks = []
+    categories = {}
     for d in content.load_decks(dom["subdir"]):
-        decks.append(
-            {
-                "id": d["id"],
-                "name": d["name"],
-                "vocab_total": len(d["cards"]),
-                "vocab_due": len(_due(d["cards"], pm, direction)),
-                "sent_total": len(d["sentences"]),
-                "sent_due": len(_due(d["sentences"], pm, direction)),
-            }
-        )
+        entry = {
+            "id": d["id"],
+            "name": d["name"],
+            "vocab_total": len(d["cards"]),
+            "vocab_due": len(_due(d["cards"], pm, direction)),
+            "sent_total": len(d["sentences"]),
+            "sent_due": len(_due(d["sentences"], pm, direction)),
+        }
+        cat = d.get("category") or "_other"
+        categories.setdefault(cat, []).append(entry)
+        decks.append(entry)
     return templates.TemplateResponse(
         "index.html",
-        {"request": request, "decks": decks, "direction": direction, "labels": modes.LABELS, "next": "/"},
+        {"request": request, "categories": categories, "decks": decks, "direction": direction, "labels": modes.LABELS, "next": "/"},
     )
+
+
+# ----- reset progress -----
+
+@app.post("/reset/{deck_id}")
+def reset_progress(request: Request, deck_id: str):
+    if (r := _redirect_if_anon(request)) is not None:
+        return r
+    db.reset_deck_progress(deck_id)
+    return RedirectResponse("/", status_code=303)
 
 
 # ----- flashcard review -----
