@@ -1,0 +1,295 @@
+# Verb tenses in context: Spain Spanish (A2/B1)
+# cards: conjugation prompts AND English-to-Spanish sentence flashcards
+# sentences: bilingual examples, suitable for translation and reading practice
+id: verbos_comunes_frases
+name: Verbos comunes — frases (A2/B1)
+cards:
+- front: 'Traduce: I saw it yesterday.'
+  back: Lo vi ayer.
+- front: 'Traduce: We used to see each other every Friday.'
+  back: Nos veíamos todos los viernes.
+- front: 'Traduce: Have you (tú) seen the message today?'
+  back: ¿Has visto el mensaje hoy?
+- front: 'Traduce: We will see the flat tomorrow.'
+  back: Veremos el piso mañana.
+- front: 'Traduce: She told me the truth yesterday.'
+  back: Me dijo la verdad ayer.
+- front: 'Traduce: What did you (vosotros) say at the meeting?'
+  back: ¿Qué dijisteis en la reunión?
+- front: 'Traduce: I used to say that all the time.'
+  back: Lo decía todo el tiempo.
+- front: 'Traduce: They will tell us tomorrow.'
+  back: Nos lo dirán mañana.
+- front: 'Traduce: We went to the beach last weekend.'
+  back: Fuimos a la playa el fin de semana pasado.
+- front: 'Traduce: When I was little, I went to school on foot.'
+  back: Cuando era pequeño, iba al colegio andando.
+- front: 'Traduce: Have you (vosotros) been to Segovia?'
+  back: ¿Habéis ido a Segovia?
+- front: 'Traduce: I will go to the office on Monday.'
+  back: Iré a la oficina el lunes.
+- front: 'Traduce: I brought the documents yesterday.'
+  back: Traje los documentos ayer.
+- front: 'Traduce: She used to bring coffee every morning.'
+  back: Traía café todas las mañanas.
+- front: 'Traduce: Have you (tú) brought your passport?'
+  back: ¿Has traído el pasaporte?
+- front: 'Traduce: They will bring the food tonight.'
+  back: Traerán la comida esta noche.
+- front: 'Traduce: I thought it was a good idea.'
+  back: Pensé que era una buena idea.
+- front: 'Traduce: We used to think it was impossible.'
+  back: Pensábamos que era imposible.
+- front: 'Traduce: Have you (tú) thought about the offer?'
+  back: ¿Has pensado en la oferta?
+- front: 'Traduce: I will think about it tonight.'
+  back: Lo pensaré esta noche.
+- front: 'Traduce: Yesterday we ate very late.'
+  back: Ayer comimos muy tarde.
+- front: 'Traduce: As a child, I ate at my grandparents’ house on Sundays.'
+  back: De pequeño, comía en casa de mis abuelos los domingos.
+- front: 'Traduce: Have you (vosotros) eaten yet?'
+  back: ¿Habéis comido ya?
+- front: 'Traduce: What will you (tú) eat tomorrow?'
+  back: ¿Qué comerás mañana?
+- front: 'Traduce: I drank two coffees this morning.'
+  back: He bebido dos cafés esta mañana.
+- front: 'Traduce: We used to drink tea after dinner.'
+  back: Bebíamos té después de cenar.
+- front: 'Traduce: They drank all the water yesterday.'
+  back: Ayer bebieron toda el agua.
+- front: 'Traduce: I will drink some water later.'
+  back: Beberé un poco de agua más tarde.
+- front: 'Traduce: We did the work yesterday.'
+  back: Hicimos el trabajo ayer.
+- front: 'Traduce: What were you (tú) doing when I called?'
+  back: ¿Qué hacías cuando te llamé?
+- front: 'Traduce: I have already done it.'
+  back: Ya lo he hecho.
+- front: 'Traduce: They will do it next week.'
+  back: Lo harán la semana que viene.
+- front: 'Traduce: We had a meeting yesterday.'
+  back: Ayer tuvimos una reunión.
+- front: 'Traduce: Before, I had more free time.'
+  back: Antes tenía más tiempo libre.
+- front: 'Traduce: Have you (vosotros) had any problems?'
+  back: ¿Habéis tenido algún problema?
+- front: 'Traduce: I will have more time next month.'
+  back: Tendré más tiempo el mes que viene.
+- front: 'Traduce: She came to Madrid last year.'
+  back: Vino a Madrid el año pasado.
+- front: 'Traduce: My friends used to come every summer.'
+  back: Mis amigos venían todos los veranos.
+- front: 'Traduce: Have they come yet?'
+  back: ¿Han venido ya?
+- front: 'Traduce: Will you (tú) come with us tomorrow?'
+  back: ¿Vendrás con nosotros mañana?
+- front: 'Traduce: I put the keys on the table yesterday.'
+  back: Ayer puse las llaves encima de la mesa.
+- front: 'Traduce: We always put music on while cooking.'
+  back: Siempre poníamos música mientras cocinábamos.
+- front: 'Traduce: Have you (tú) put the washing machine on?'
+  back: ¿Has puesto la lavadora?
+- front: 'Traduce: We will put the sofa by the window.'
+  back: Pondremos el sofá junto a la ventana.
+- front: 'Traduce: We went out late last night.'
+  back: Anoche salimos tarde.
+- front: 'Traduce: I used to leave work at six.'
+  back: Antes salía del trabajo a las seis.
+- front: 'Traduce: Have you (vosotros) gone out this week?'
+  back: ¿Habéis salido esta semana?
+- front: 'Traduce: The train will leave at eight.'
+  back: El tren saldrá a las ocho.
+- front: 'Traduce: Yesterday I told my colleague I couldn’t go to the meeting.'
+  back: Ayer le dije a mi compañero que no podía ir a la reunión.
+- front: 'Traduce: When I worked from home, I used to drink a lot of coffee in the mornings.'
+  back: Cuando trabajaba en casa, bebía mucho café por las mañanas.
+- front: 'Traduce: This week we have seen three flats, but none has convinced us.'
+  back: Esta semana hemos visto tres pisos, pero ninguno nos ha convencido.
+- front: 'Traduce: Next time I will bring my laptop to show you the project.'
+  back: La próxima vez traeré mi portátil para enseñarte el proyecto.
+- front: 'Traduce: I used to think living in Madrid would be cheaper.'
+  back: Antes pensaba que vivir en Madrid sería más barato.
+- front: 'Traduce: Last night we ate dinner late because we left the office at nine.'
+  back: Anoche cenamos tarde porque salimos de la oficina a las nueve.
+- front: 'Traduce: Have you all eaten yet, or do you want me to make something?'
+  back: ¿Habéis comido ya o queréis que prepare algo?
+- front: 'Traduce: When I arrived, my friends were already having a drink on the terrace.'
+  back: Cuando llegué, mis amigos ya estaban bebiendo algo en la terraza.
+- front: 'Traduce: Last year we went to Segovia and saw the aqueduct.'
+  back: El año pasado fuimos a Segovia y vimos el acueducto.
+- front: 'Traduce: Tomorrow I will go to the office if I finish work on time.'
+  back: Mañana iré a la oficina si termino el trabajo a tiempo.
+- front: 'Traduce: What did the doctor tell you this morning?'
+  back: ¿Qué te ha dicho el médico esta mañana?
+- front: 'Traduce: As a child I always said that I wanted to live near the sea.'
+  back: De pequeño siempre decía que quería vivir cerca del mar.
+- front: 'Traduce: Yesterday I brought the keys, but I left them in the car.'
+  back: Ayer traje las llaves, pero las dejé en el coche.
+- front: 'Traduce: When we lived together, she used to bring food on Fridays.'
+  back: Cuando vivíamos juntos, ella traía comida los viernes.
+- front: 'Traduce: I think it will be cold tonight, so I will take a jacket.'
+  back: Creo que esta noche hará frío, así que llevaré una chaqueta.
+- front: 'Traduce: I haven’t done the shopping yet; I will do it after work.'
+  back: No he hecho la compra todavía; la haré después de trabajar.
+- front: 'Traduce: I was very hungry because I had not eaten since breakfast.'
+  back: Tenía mucha hambre porque no había comido desde el desayuno.
+- front: 'Traduce: Last Saturday we had a dinner and eight friends came.'
+  back: El sábado pasado tuvimos una cena y vinieron ocho amigos.
+- front: 'Traduce: When you used to come to Madrid, did you always stay at the same hotel?'
+  back: Cuando venías a Madrid, ¿te quedabas siempre en el mismo hotel?
+- front: 'Traduce: This morning I put the documents on your desk.'
+  back: Esta mañana he puesto los documentos en tu mesa.
+- front: 'Traduce: Next week we will launch the new feature.'
+  back: La semana que viene pondremos en marcha la nueva función.
+- front: 'Traduce: If it does not rain, we will go running before breakfast.'
+  back: Si no llueve, saldremos a correr antes de desayunar.
+- front: 'Traduce: We used to go out a lot during the week, but now we are busier.'
+  back: Antes salíamos mucho entre semana, pero ahora estamos más ocupados.
+- front: 'Traduce: I did not think the film would be so long, but I liked it a lot.'
+  back: No pensé que la película fuera tan larga, pero me gustó mucho.
+sentences:
+- es: Ayer vi a un amigo al que no veía desde hace años.
+  en: Yesterday I saw a friend I hadn’t seen for years.
+- es: Cuando vivía en Ámsterdam, iba al trabajo en bicicleta.
+  en: When I lived in Amsterdam, I used to cycle to work.
+- es: Esta mañana he visto un piso que me ha gustado bastante.
+  en: This morning I saw a flat that I liked quite a lot.
+- es: Mañana veremos si el precio tiene sentido.
+  en: Tomorrow we’ll see whether the price makes sense.
+- es: Mi compañero me dijo que la reunión empezaba a las nueve.
+  en: My colleague told me the meeting started at nine.
+- es: Antes decía que no quería vivir en el centro.
+  en: I used to say that I didn’t want to live in the city centre.
+- es: ¿Os han dicho cuándo empieza la presentación?
+  en: Have they told you all when the presentation starts?
+- es: Te diré lo que pienso después de la reunión.
+  en: I’ll tell you what I think after the meeting.
+- es: El sábado fuimos a Segovia y comimos en un restaurante pequeño.
+  en: On Saturday we went to Segovia and ate in a small restaurant.
+- es: De pequeño iba a casa de mis abuelos casi todos los domingos.
+  en: As a child, I used to go to my grandparents’ house almost every Sunday.
+- es: Este año hemos ido varias veces a la sierra.
+  en: This year we’ve been to the mountains several times.
+- es: Si tengo tiempo, iré a la oficina mañana.
+  en: If I have time, I’ll go to the office tomorrow.
+- es: Ayer traje el portátil, pero me olvidé del cargador.
+  en: Yesterday I brought my laptop, but I forgot the charger.
+- es: Mi madre siempre traía algo de comer cuando venía a visitarnos.
+  en: My mother always brought something to eat when she came to visit us.
+- es: ¿Has traído los documentos que te pedí?
+  en: Have you brought the documents I asked you for?
+- es: La próxima vez traeremos algo para compartir.
+  en: Next time we’ll bring something to share.
+- es: Al principio pensé que el proyecto sería más fácil.
+  en: At first I thought the project would be easier.
+- es: Antes pensábamos que necesitábamos más empleados.
+  en: We used to think we needed more employees.
+- es: Últimamente he pensado mucho en cambiar de piso.
+  en: Lately I’ve thought a lot about moving to a different flat.
+- es: Lo pensaré y te contestaré mañana.
+  en: I’ll think about it and reply to you tomorrow.
+- es: Anoche comimos tarde porque la reunión terminó a las diez.
+  en: Last night we ate late because the meeting ended at ten.
+- es: Cuando trabajaba desde casa, comía delante del ordenador.
+  en: When I worked from home, I used to eat in front of the computer.
+- es: ¿Habéis comido ya o queréis ir a tomar algo?
+  en: Have you all eaten yet, or do you want to go for something to eat or drink?
+- es: Después del paseo beberemos algo en una terraza.
+  en: After the walk we’ll have a drink at an outdoor café.
+- es: El lunes hicimos muchos cambios en la aplicación.
+  en: On Monday we made a lot of changes to the app.
+- es: Mientras yo hacía la cena, ella hablaba por teléfono.
+  en: While I was making dinner, she was talking on the phone.
+- es: Esta semana hemos hecho más de lo que esperábamos.
+  en: This week we’ve done more than we expected.
+- es: Si todo va bien, haremos la prueba el viernes.
+  en: If everything goes well, we’ll do the test on Friday.
+- es: Ayer tuvimos un problema que no esperábamos.
+  en: Yesterday we had a problem we weren’t expecting.
+- es: Cuando vivía fuera, tenía menos oportunidades de practicar español.
+  en: When I lived abroad, I had fewer opportunities to practise Spanish.
+- es: Este mes hemos tenido varias reuniones con clientes.
+  en: This month we’ve had several meetings with clients.
+- es: El mes que viene tendremos más tiempo para viajar.
+  en: Next month we’ll have more time to travel.
+- es: Mis amigos vinieron a cenar y trajeron una botella de vino.
+  en: My friends came for dinner and brought a bottle of wine.
+- es: Antes mi hermano venía a verme todos los veranos.
+  en: My brother used to come to see me every summer.
+- es: Hoy han venido dos clientes nuevos a la oficina.
+  en: Today two new clients came to the office.
+- es: ¿Vendréis a la cena del sábado?
+  en: Will you all come to Saturday’s dinner?
+- es: Puse el móvil en silencio porque estaba en una reunión.
+  en: I put my phone on silent because I was in a meeting.
+- es: Siempre poníamos música cuando limpiábamos el piso.
+  en: We always used to put music on when we cleaned the flat.
+- es: ¿Has puesto las llaves donde siempre?
+  en: Have you put the keys in their usual place?
+- es: Pondremos la mesa cuando lleguen los invitados.
+  en: We’ll set the table when the guests arrive.
+- es: Ayer salí del trabajo más tarde de lo normal.
+  en: Yesterday I left work later than usual.
+- es: Cuando vivía en Nueva York, salía mucho los fines de semana.
+  en: When I lived in New York, I used to go out a lot at weekends.
+- es: Esta semana apenas hemos salido porque hemos estado ocupados.
+  en: This week we’ve hardly gone out because we’ve been busy.
+- es: Saldremos temprano para evitar el tráfico.
+  en: We’ll leave early to avoid the traffic.
+- es: Yo creía que venías hoy, pero me dijiste que llegarías mañana.
+  en: I thought you were coming today, but you told me you would arrive tomorrow.
+- es: Mientras buscábamos piso, vimos varios que nos gustaron, pero eran demasiado caros.
+  en: While we were looking for a flat, we saw several we liked, but they were too expensive.
+- es: Nunca he probado ese plato, pero mañana lo comeré.
+  en: I’ve never tried that dish, but tomorrow I’ll eat it.
+- es: Aunque al principio no lo entendí, ahora he visto por qué era importante.
+  en: Although I didn’t understand it at first, now I’ve seen why it was important.
+- es: Ayer le dije a mi compañero que no podía ir a la reunión.
+  en: Yesterday I told my colleague I couldn’t go to the meeting.
+- es: Cuando trabajaba en casa, bebía mucho café por las mañanas.
+  en: When I worked from home, I used to drink a lot of coffee in the mornings.
+- es: Esta semana hemos visto tres pisos, pero ninguno nos ha convencido.
+  en: This week we have seen three flats, but none has convinced us.
+- es: La próxima vez traeré mi portátil para enseñarte el proyecto.
+  en: Next time I will bring my laptop to show you the project.
+- es: Antes pensaba que vivir en Madrid sería más barato.
+  en: I used to think living in Madrid would be cheaper.
+- es: Anoche cenamos tarde porque salimos de la oficina a las nueve.
+  en: Last night we ate dinner late because we left the office at nine.
+- es: ¿Habéis comido ya o queréis que prepare algo?
+  en: Have you all eaten yet, or do you want me to make something?
+- es: Cuando llegué, mis amigos ya estaban bebiendo algo en la terraza.
+  en: When I arrived, my friends were already having a drink on the terrace.
+- es: El año pasado fuimos a Segovia y vimos el acueducto.
+  en: Last year we went to Segovia and saw the aqueduct.
+- es: Mañana iré a la oficina si termino el trabajo a tiempo.
+  en: Tomorrow I will go to the office if I finish work on time.
+- es: ¿Qué te ha dicho el médico esta mañana?
+  en: What did the doctor tell you this morning?
+- es: De pequeño siempre decía que quería vivir cerca del mar.
+  en: As a child I always said that I wanted to live near the sea.
+- es: Ayer traje las llaves, pero las dejé en el coche.
+  en: Yesterday I brought the keys, but I left them in the car.
+- es: Cuando vivíamos juntos, ella traía comida los viernes.
+  en: When we lived together, she used to bring food on Fridays.
+- es: Creo que esta noche hará frío, así que llevaré una chaqueta.
+  en: I think it will be cold tonight, so I will take a jacket.
+- es: No he hecho la compra todavía; la haré después de trabajar.
+  en: I haven’t done the shopping yet; I will do it after work.
+- es: Tenía mucha hambre porque no había comido desde el desayuno.
+  en: I was very hungry because I had not eaten since breakfast.
+- es: El sábado pasado tuvimos una cena y vinieron ocho amigos.
+  en: Last Saturday we had a dinner and eight friends came.
+- es: Cuando venías a Madrid, ¿te quedabas siempre en el mismo hotel?
+  en: When you used to come to Madrid, did you always stay at the same hotel?
+- es: Esta mañana he puesto los documentos en tu mesa.
+  en: This morning I put the documents on your desk.
+- es: La semana que viene pondremos en marcha la nueva función.
+  en: Next week we will launch the new feature.
+- es: Si no llueve, saldremos a correr antes de desayunar.
+  en: If it does not rain, we will go running before breakfast.
+- es: Antes salíamos mucho entre semana, pero ahora estamos más ocupados.
+  en: We used to go out a lot during the week, but now we are busier.
+- es: No pensé que la película fuera tan larga, pero me gustó mucho.
+  en: I did not think the film would be so long, but I liked it a lot.
