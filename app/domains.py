@@ -21,7 +21,7 @@ DOMAINS: dict[str, dict] = {
         "brand": "Español",
         "subdir": "spanish",
         "stylesheet": "style.css",
-        "theme_color": "#7c3aed",
+        "theme_color": "#1a0f07",
         "kind": "translate",
     },
     "knowledge": {
@@ -30,7 +30,7 @@ DOMAINS: dict[str, dict] = {
         "brand": "Knowledge Work",
         "subdir": "knowledge",
         "stylesheet": "knowledge.css",
-        "theme_color": "#1e3a8a",
+        "theme_color": "#1a0f07",
         "kind": "flip",
     },
 }
