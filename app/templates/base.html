@@ -7,8 +7,8 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="theme-color" content="{{ dom.theme_color }}">
-  <link rel="manifest" href="/static/manifest.json">
-  <link rel="stylesheet" href="/static/{{ dom.stylesheet }}">
+  <link rel="manifest" href="/static/manifest.json?v={{ asset_version }}">
+  <link rel="stylesheet" href="/static/{{ dom.stylesheet }}?v={{ asset_version }}">
   <script src="https://unpkg.com/htmx.org@1.9.12"></script>
   <title>{% block title %}{{ dom.brand }}{% endblock %}</title>
 </head>

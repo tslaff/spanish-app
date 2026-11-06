@@ -13,6 +13,16 @@ from . import auth, content, db, domains, grading, modes, srs, translate
 from .config import settings
 
 BASE_DIR = os.path.dirname(__file__)
+STATIC_DIR = os.path.join(BASE_DIR, "static")
+
+
+def _asset_version() -> str:
+    """Cache-buster for static assets: changes whenever any static file changes."""
+    latest = 0.0
+    for root, _, files in os.walk(STATIC_DIR):
+        for name in files:
+            latest = max(latest, os.path.getmtime(os.path.join(root, name)))
+    return str(int(latest))
 
 
 @asynccontextmanager
@@ -23,11 +33,14 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(lifespan=lifespan)
 app.add_middleware(SessionMiddleware, secret_key=settings.secret_key)
-app.mount("/static", StaticFiles(directory=os.path.join(BASE_DIR, "static")), name="static")
+app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 templates = Jinja2Templates(directory=os.path.join(BASE_DIR, "templates"))
 # Make the domain registry available to every template (base.html reads it to
 # pick the stylesheet, brand and the domain switcher).
 templates.env.globals["domains"] = domains
+# Stamp stylesheet/manifest URLs so a new deploy is never hidden behind an old
+# browser or home-screen cache.
+templates.env.globals["asset_version"] = _asset_version()
 
 
 def _redirect_if_anon(request: Request):
